@@ -37,9 +37,8 @@
       <a href="index.html#contact">Contact</a>
     </nav>
 
-    <span class="header-mark" aria-hidden="true">
-      <img src="images/logo.png" alt="TFabCo logo" width="120" height="100">
-    </span>
+    <!-- Replace public/images/logo.svg with your real logo (keep the filename, or update this src) -->
+    <img src="public/images/logo.svg" alt="TFabCo logo" class="site-logo">
 
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -52,13 +51,15 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-split">
-      <div class="hero-image hero-image--classic" role="img" aria-label="Placeholder — classic ornamental gate photo">
-        <span class="img-tag">Placeholder photo</span>
+      <!-- Placeholder Cloudinary images -- replace the public ID after /upload/f_auto,q_auto,w_900,c_fill/ with your own -->
+      <div class="hero-image hero-image--classic">
+        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1721586155/tech-rev_ybejet" alt="Placeholder — classic ornamental gate photo">
       </div>
-      <div class="hero-image hero-image--modern" role="img" aria-label="Placeholder — modern facade photo">
-        <span class="img-tag">Placeholder photo</span>
+      <div class="hero-image hero-image--modern">
+        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1721586155/tech-rev_ybejet" alt="Placeholder — modern facade photo">
       </div>
     </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
       <h1>Crafting Spaces<br>That Define You.</h1>
@@ -80,12 +81,15 @@
   <section class="search-section">
     <div class="container">
       <p class="search-label">What are you looking for?</p>
-      <form action="products.html" method="GET" class="search-form" role="search">
-        <input type="search" name="search" placeholder="Search for gates, railings, staircases, cladding, facades…" aria-label="Search products">
-        <button type="submit" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        </button>
-      </form>
+      <div class="search-wrap">
+        <form action="products.html" method="GET" class="search-form" role="search" autocomplete="off">
+          <input type="search" name="search" id="home-search" placeholder="Search in English or Punjabi — gate, ਫਾਟਕ, phatak, sirhi…" aria-label="Search products">
+          <button type="submit" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+        </form>
+        <div class="search-suggestions" id="home-search-suggestions" role="listbox"></div>
+      </div>
     </div>
   </section>
 
@@ -148,12 +152,8 @@
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21v-4h4v-4h4v-4h4V5h4"/></svg>
           <span>Staircases</span>
         </a>
-        <a href="products.html?type=elevation" class="service-tile">
+        <a href="products.html?type=facades" class="service-tile">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="18"/><rect x="13" y="3" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-          <span>Elevation Cladding</span>
-        </a>
-        <a href="products.html?type=interiors" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21V13h6v8"/></svg>
           <span>Facades</span>
         </a>
         <a href="products.html?type=sheds" class="service-tile">
@@ -194,8 +194,7 @@
         <button class="filter-btn" data-filter="gates">Gates</button>
         <button class="filter-btn" data-filter="railings">Railings</button>
         <button class="filter-btn" data-filter="staircases">Staircases</button>
-        <button class="filter-btn" data-filter="elevation">Elevation</button>
-        <button class="filter-btn" data-filter="interiors">Interiors</button>
+        <button class="filter-btn" data-filter="facades">Facades</button>
       </div>
 
       <div class="teaser-grid" id="teaser-grid"><!-- populated by home.js --></div>
@@ -352,7 +351,7 @@
         <li><a href="products.html?type=gates">Gates</a></li>
         <li><a href="products.html?type=railings">Railings</a></li>
         <li><a href="products.html?type=staircases">Staircases</a></li>
-        <li><a href="products.html?type=elevation">Elevation Cladding</a></li>
+        <li><a href="products.html?type=facades">Facades</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -436,8 +435,8 @@
         <select id="est-type" name="project_type">
           <option>Gate</option>
           <option>Railing / Staircase</option>
-          <option>Elevation Cladding</option>
-          <option>Interior</option>
+          <option>Facade Cladding</option>
+          <option>Shed / Canopy</option>
           <option>Not sure yet</option>
         </select>
       </div>
@@ -455,6 +454,8 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/products-data.js"></script>
+<script src="js/search-engine.js"></script>
 <script src="js/home.js"></script>
 </body>
 </html>

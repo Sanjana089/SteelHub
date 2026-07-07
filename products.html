@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects &amp; Products — TFabCo</title>
-<meta name="description" content="Browse TFabCo's gates, railings, staircases and elevation cladding projects. Filter by style and product type.">
+<meta name="description" content="Browse TFabCo's gates, railings, staircases and facade cladding projects. Filter by style and product type.">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23feda15' font-family='Georgia'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,8 @@
       <a href="index.html#contact">Contact</a>
     </nav>
 
-    <span class="header-mark" aria-hidden="true">
-      <svg width="30" height="30" viewBox="0 0 30 30"><path d="M4 4 L26 4 L26 9 L17.5 9 L17.5 26 L12.5 26 L12.5 9 L4 9 Z" fill="currentColor"/></svg>
-    </span>
+    <!-- Replace public/images/logo.svg with your real logo (keep the filename, or update this src) -->
+    <img src="public/images/logo.svg" alt="TFabCo logo" class="site-logo">
 
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -48,12 +47,15 @@
       <h1>Projects &amp; Products</h1>
       <p class="section-sub">Every gate, railing, staircase and facade we build — filter by style or type to find what fits your space.</p>
 
-      <form action="products.html" method="GET" class="search-form search-form--banner" role="search">
-        <input type="search" name="search" id="banner-search" placeholder="Search for gates, railings, staircases, cladding, sheds…" aria-label="Search products">
-        <button type="submit" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        </button>
-      </form>
+      <div class="search-wrap search-wrap--banner">
+        <form action="products.html" method="GET" class="search-form search-form--banner" role="search" autocomplete="off">
+          <input type="search" name="search" id="banner-search" placeholder="Search for gates, railings, staircases, cladding, sheds…" aria-label="Search products">
+          <button type="submit" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+        </form>
+        <div class="search-suggestions" id="search-suggestions" role="listbox"></div>
+      </div>
     </div>
   </section>
 
@@ -82,9 +84,8 @@
             <label class="check-item"><input type="checkbox" value="gates"><span>Gates</span></label>
             <label class="check-item"><input type="checkbox" value="railings"><span>Railings</span></label>
             <label class="check-item"><input type="checkbox" value="staircases"><span>Staircases</span></label>
-            <label class="check-item"><input type="checkbox" value="elevation"><span>Elevation Cladding</span></label>
-            <label class="check-item"><input type="checkbox" value="facade"><span>Facade</span></label>
-            <label class="check-item"><input type="checkbox" value="sheds"><span>Sheds &amp; Pergolas</span></label>
+            <label class="check-item"><input type="checkbox" value="facades"><span>Facades</span></label>
+            <label class="check-item"><input type="checkbox" value="sheds"><span>Sheds &amp; Canopies</span></label>
           </div>
         </div>
       </aside>
@@ -143,7 +144,7 @@
         <li><a href="products.html?type=gates">Gates</a></li>
         <li><a href="products.html?type=railings">Railings</a></li>
         <li><a href="products.html?type=staircases">Staircases</a></li>
-        <li><a href="products.html?type=elevation">Elevation Cladding</a></li>
+        <li><a href="products.html?type=facades">Facades</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -227,8 +228,8 @@
         <select id="est-type-p" name="project_type">
           <option>Gate</option>
           <option>Railing / Staircase</option>
-          <option>Elevation Cladding</option>
-          <option>Interior</option>
+          <option>Facade Cladding</option>
+          <option>Shed / Canopy</option>
           <option>Not sure yet</option>
         </select>
       </div>
@@ -247,6 +248,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/products-data.js"></script>
+<script src="js/search-engine.js"></script>
 <script src="js/products.js"></script>
 </body>
 </html>

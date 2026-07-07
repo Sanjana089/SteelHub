@@ -1,8 +1,8 @@
 /* ==========================================================
-   PRODUCTS PAGE — filtering, search, URL sync, rendering
+   PRODUCTS PAGE -- filtering, smart search, URL sync, rendering
    ========================================================== */
 
-// ---------- PLACEHOLDER VISUAL PATTERNS (per type + style) ----------
+// ---------- PLACEHOLDER VISUAL PATTERNS (fallback if a Cloudinary image fails to load) ----------
 const TYPE_SHAPES = {
   gates: (s) => `<g stroke="${s}" stroke-width="2" fill="none">
       <line x1="20" y1="8" x2="20" y2="82"/><line x1="40" y1="8" x2="40" y2="82"/>
@@ -16,12 +16,8 @@ const TYPE_SHAPES = {
   staircases: (s) => `<g stroke="${s}" stroke-width="2" fill="none">
       <path d="M10 82 L10 66 L30 66 L30 50 L50 50 L50 34 L70 34 L70 18 L90 18 L90 8 L110 8"/>
     </g>`,
-  elevation: (s) => `<g stroke="${s}" stroke-width="1.5" fill="none">
+  facades: (s) => `<g stroke="${s}" stroke-width="1.5" fill="none">
       <rect x="10" y="8" width="45" height="74"/><rect x="65" y="8" width="45" height="34"/><rect x="65" y="50" width="45" height="32"/>
-    </g>`,
-  interiors: (s) => `<g stroke="${s}" stroke-width="1.5" fill="none">
-      <circle cx="60" cy="45" r="28"/><circle cx="60" cy="45" r="16"/>
-      <path d="M60 17 V8 M60 73 V82 M32 45 H10 M110 45 H88"/>
     </g>`,
   sheds: (s) => `<g stroke="${s}" stroke-width="2" fill="none">
       <path d="M8 40 60 12 112 40"/><path d="M18 40 V82 M102 40 V82"/><line x1="8" y1="40" x2="112" y2="40"/>
@@ -30,9 +26,8 @@ const TYPE_SHAPES = {
 
 function patternSVG(pattern){
   const [type, style] = pattern.split('-');
-  const shapeFn = TYPE_SHAPES[
-    { gate: 'gates', rail: 'railings', stair: 'staircases', elev: 'elevation', int: 'interiors', shed: 'sheds' }[type]
-  ];
+  const typeMap = { gate: 'gates', rail: 'railings', stair: 'staircases', facade: 'facades', shed: 'sheds' };
+  const shapeFn = TYPE_SHAPES[typeMap[type]];
   const bg = style === 'classic' ? '#2a2620' : '#eef1f0';
   const stroke = style === 'classic' ? '#d8b23a' : '#383838';
   return `<svg viewBox="0 0 120 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -74,18 +69,21 @@ function syncControlsFromState(){
   });
 }
 
-// ---------- FILTERING ----------
+// ---------- FILTERING (facets first, then smart search ranking) ----------
 function getFilteredProducts(){
-  const q = state.search.trim().toLowerCase();
-  return PRODUCTS.filter(p => {
+  let candidates = PRODUCTS.filter(p => {
     if(state.styles.length && !state.styles.includes(p.style)) return false;
     if(state.types.length && !state.types.includes(p.type)) return false;
-    if(q){
-      const haystack = [p.name, p.type, p.style, ...p.tags].join(' ').toLowerCase();
-      if(!haystack.includes(q)) return false;
-    }
     return true;
   });
+
+  if(state.search.trim()){
+    // searchProducts() lives in search-engine.js -- handles fuzzy matching
+    // and Punjabi/Romanized alias translation automatically.
+    candidates = searchProducts(state.search, candidates).map(r => r.product);
+  }
+
+  return candidates;
 }
 
 // ---------- RENDER ----------
@@ -94,14 +92,14 @@ function renderChips(){
   wrap.innerHTML = '';
   const chips = [];
 
-  if(state.search) chips.push({ label: `“${state.search}”`, clear: () => { state.search = ''; } });
+  if(state.search) chips.push({ label: `"${state.search}"`, clear: () => { state.search = ''; } });
   state.styles.forEach(v => chips.push({ label: v[0].toUpperCase()+v.slice(1), clear: () => { state.styles = state.styles.filter(x=>x!==v); } }));
   state.types.forEach(v => chips.push({ label: TYPE_LABELS[v] || v, clear: () => { state.types = state.types.filter(x=>x!==v); } }));
 
   chips.forEach(chip => {
     const el = document.createElement('span');
     el.className = 'active-chip';
-    el.innerHTML = `${chip.label} <button aria-label="Remove filter">✕</button>`;
+    el.innerHTML = `${chip.label} <button aria-label="Remove filter">X</button>`;
     el.querySelector('button').addEventListener('click', () => {
       chip.clear();
       applyAndRender();
@@ -126,8 +124,12 @@ function renderProducts(){
   results.forEach(p => {
     const card = document.createElement('article');
     card.className = 'product-card card';
+    const imgUrl = cloudinaryUrl(p.image, { width: 500 });
+    const fallbackSvg = patternSVG(p.pattern).replace(/"/g, '&quot;');
     card.innerHTML = `
-      <div class="product-media">${patternSVG(p.pattern)}
+      <div class="product-media">
+        <img src="${imgUrl}" alt="${p.name}" loading="lazy"
+             onerror="this.outerHTML = '${fallbackSvg}'">
         <span class="product-badge">${p.style[0].toUpperCase()+p.style.slice(1)}</span>
       </div>
       <div class="product-body">
@@ -173,11 +175,26 @@ function applyAndRender(){
     });
   });
 
-  document.getElementById('banner-search').closest('form').addEventListener('submit', (e) => {
+  const bannerInput = document.getElementById('banner-search');
+  bannerInput.closest('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    state.search = document.getElementById('banner-search').value;
+    state.search = bannerInput.value;
     applyAndRender();
   });
+
+  // smart live-suggestions dropdown -- updates on every keystroke
+  const suggestionsEl = document.getElementById('search-suggestions');
+  if(suggestionsEl){
+    attachSearchDropdown(bannerInput, suggestionsEl, PRODUCTS, (suggestion) => {
+      // apply directly instead of a full page navigation when possible
+      const url = new URL(suggestion.href, window.location.origin);
+      const params = url.searchParams;
+      state.search = params.get('search') || '';
+      state.types = (params.get('type') || '').split(',').filter(Boolean);
+      applyAndRender();
+      bannerInput.blur();
+    });
+  }
 
   document.getElementById('clear-filters').addEventListener('click', () => {
     state.search = ''; state.styles = []; state.types = [];

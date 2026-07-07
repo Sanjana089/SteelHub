@@ -1,5 +1,5 @@
 /* ==========================================================
-   TFabCo — SMART SEARCH ENGINE
+   TFabCo -- SMART SEARCH ENGINE
    Shared by home.js (search bar dropdown) and products.js
    (catalog search + filtering).
 
@@ -9,7 +9,7 @@
    3. User types Romanized Punjabi/Hindi       -> alias dictionary, fuzzy lookup
       ("phatak", "sirhi", "jangla", etc.)
 
-   Extend ALIASES to grow the vocabulary — no other code needs to change.
+   Extend ALIASES to grow the vocabulary -- no other code needs to change.
    ========================================================== */
 
 /* ---------- ALIAS DICTIONARY ----------
@@ -23,8 +23,7 @@ const ALIASES = {
   gate:        ['gate','gaet','gett','geyt','gates','phatak','phattak','ਫਾਟਕ','ਗੇਟ','darwaza','darvaza','ਦਰਵਾਜ਼ਾ','entrance'],
   railing:     ['railing','railling','relling','raling','railng','grill','grille','jangla','jaangla','janglaa','ਜੰਗਲਾ','ਰੇਲਿੰਗ','balustrade','baluster'],
   staircase:   ['staircase','stair','stairs','stairecase','sirhi','seerhi','siri','seedi','ਪੌੜੀ','ਸੀੜ੍ਹੀ','pauri'],
-  elevation:   ['elevation','facade','façade','elavation','elevetion','chajja','chhajja','ਛੱਜਾ','saamna','samna','ਸਾਹਮਣਾ','cladding','cladeing','front'],
-  interior:    ['interior','interiors','intreior','andruni','ਅੰਦਰੂਨੀ','andar','ghar'],
+  facade:      ['facade','elevation','elavation','elevetion','fasaad','chajja','chhajja','ਛੱਜਾ','saamna','samna','ਸਾਹਮਣਾ','cladding','cladeing','front','building front'],
   shed:        ['shed','sheds','shad','sed','tappar','tapra','ਟੱਪਰ','ਸ਼ੈੱਡ','canopy','cannopy','parking shed','car shed'],
 
   // ---- styles ----
@@ -42,9 +41,7 @@ const ALIASES = {
   steel:       ['steel','stel','loha','lohaa','ਲੋਹਾ','iron','ms','stainless'],
   stone:       ['stone','ston','patthar','pathar','ਪੱਥਰ'],
   glass:       ['glass','glas','sheesha','sheesa','ਸ਼ੀਸ਼ਾ'],
-  door:        ['door','dor','darwaza','darvaza','ਦਰਵਾਜ਼ਾ'],
   balcony:     ['balcony','balkony','balcny'],
-  entrance:    ['entrance','entrence','entry','gate'],
 };
 
 // Build a flat reverse lookup: alias string -> array of canonical terms it can mean
@@ -63,7 +60,10 @@ Object.keys(ALIASES).forEach(canonical => {
 
 const ALL_ALIAS_KEYS = Object.keys(ALIAS_LOOKUP);
 
-/* ---------- LEVENSHTEIN DISTANCE (typo tolerance) ---------- */
+const CANONICAL_TO_TYPE = {
+  gate: 'gates', railing: 'railings', staircase: 'staircases', facade: 'facades', shed: 'sheds',
+};
+
 function levenshtein(a, b){
   if(a === b) return 0;
   if(!a.length) return b.length;
@@ -74,11 +74,7 @@ function levenshtein(a, b){
     let curr = [i];
     for(let j = 1; j <= b.length; j++){
       const cost = a[i-1] === b[j-1] ? 0 : 1;
-      curr[j] = Math.min(
-        prev[j] + 1,        // deletion
-        curr[j-1] + 1,      // insertion
-        prev[j-1] + cost    // substitution
-      );
+      curr[j] = Math.min(prev[j] + 1, curr[j-1] + 1, prev[j-1] + cost);
     }
     prev.splice(0, prev.length, ...curr);
   }
@@ -98,7 +94,7 @@ function normalize(str){
   return (str || '')
     .toLowerCase()
     .trim()
-    .replace(/[^\p{L}\p{N}\s]/gu, '') // strip punctuation, keep letters (incl. Gurmukhi) and numbers
+    .replace(/[^\p{L}\p{M}\p{N}\s]/gu, '')
     .replace(/\s+/g, ' ');
 }
 
@@ -127,8 +123,8 @@ function expandQuery(rawQuery){
       let best = null;
       let bestDist = Infinity;
       for(const key of ALL_ALIAS_KEYS){
-        if(!/^[a-z0-9]+$/i.test(key)) continue; // skip Gurmukhi keys for fuzzy pass
-        if(Math.abs(key.length - token.length) > 3) continue; // quick prune
+        if(!/^[a-z0-9]+$/i.test(key)) continue;
+        if(Math.abs(key.length - token.length) > 3) continue;
         const dist = levenshtein(token, key);
         if(dist < bestDist){ bestDist = dist; best = key; }
       }
@@ -151,7 +147,7 @@ function productSearchText(product){
 }
 
 function scoreProduct(product, expanded, rawCleaned){
-  if(!rawCleaned) return 1; // empty query -> everything matches equally
+  if(!rawCleaned) return 1;
   const text = productSearchText(product);
   let score = 0;
 
@@ -164,7 +160,7 @@ function scoreProduct(product, expanded, rawCleaned){
 
   expanded.canonical.forEach(term => {
     if(text.includes(term)) score += 4;
-    if(product.type === term || product.style === term) score += 3;
+    if(product.type === CANONICAL_TO_TYPE[term] || product.style === term) score += 3;
     if((product.colors || []).includes(term)) score += 3;
   });
 
@@ -197,21 +193,19 @@ function getSuggestions(rawQuery, productList, limit){
 
   // 1. translation hints — show what we understood the query as
   expanded.translations.slice(0, 2).forEach(t => {
+    const label = TYPE_LABELS[CANONICAL_TO_TYPE[t.to]] || (t.to[0].toUpperCase() + t.to.slice(1));
     suggestions.push({
       kind: 'translation',
-      label: `${rawQuery.trim()} → ${TYPE_LABELS[t.to] || (t.to[0].toUpperCase() + t.to.slice(1))}`,
+      label: `${rawQuery.trim()} -> ${label}`,
       sublabel: 'Did you mean this?',
       href: `products.html?search=${encodeURIComponent(t.to)}`,
     });
   });
 
   // 2. category matches (type facets specifically)
-  const typeKeys = ['gates','railings','staircases','elevation','interiors','sheds'];
-  const singularToType = { gate:'gates', railing:'railings', staircase:'staircases', elevation:'elevation', interior:'interiors', shed:'sheds' };
   const matchedTypes = new Set();
   expanded.canonical.forEach(term => {
-    const typeKey = singularToType[term] || (typeKeys.includes(term) ? term : null);
-    if(typeKey) matchedTypes.add(typeKey);
+    if(CANONICAL_TO_TYPE[term]) matchedTypes.add(CANONICAL_TO_TYPE[term]);
   });
   matchedTypes.forEach(typeKey => {
     const count = productList.filter(p => p.type === typeKey).length;
@@ -251,4 +245,88 @@ function getSuggestions(rawQuery, productList, limit){
     seen.add(s.label);
     return true;
   }).slice(0, limit);
+}
+
+function attachSearchDropdown(inputEl, listEl, productList, onSelect){
+  let activeIndex = -1;
+  let currentSuggestions = [];
+
+  function iconFor(kind){
+    if(kind === 'translation') return 'TR';
+    if(kind === 'category') return 'CAT';
+    if(kind === 'raw') return 'GO';
+    return '-';
+  }
+
+  function render(suggestions){
+    currentSuggestions = suggestions;
+    activeIndex = -1;
+    listEl.innerHTML = '';
+    if(!suggestions.length){
+      listEl.classList.remove('is-open');
+      return;
+    }
+    suggestions.forEach((s, i) => {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'search-suggestion suggestion-' + s.kind;
+      item.setAttribute('role', 'option');
+      item.dataset.index = i;
+      item.innerHTML = `
+        <span class="ss-icon" aria-hidden="true">${iconFor(s.kind)}</span>
+        <span class="ss-text"><span class="ss-label">${s.label}</span><span class="ss-sublabel">${s.sublabel || ''}</span></span>
+      `;
+      item.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        select(s);
+      });
+      listEl.appendChild(item);
+    });
+    listEl.classList.add('is-open');
+  }
+
+  function select(suggestion){
+    listEl.classList.remove('is-open');
+    if(onSelect){ onSelect(suggestion); }
+    else if(suggestion.href){ window.location.href = suggestion.href; }
+  }
+
+  function setActive(idx){
+    const items = listEl.querySelectorAll('.search-suggestion');
+    items.forEach(el => el.classList.remove('is-active'));
+    if(idx >= 0 && items[idx]){
+      items[idx].classList.add('is-active');
+      items[idx].scrollIntoView({ block: 'nearest' });
+    }
+    activeIndex = idx;
+  }
+
+  inputEl.addEventListener('input', () => {
+    render(getSuggestions(inputEl.value, productList));
+  });
+
+  inputEl.addEventListener('keydown', (e) => {
+    if(!listEl.classList.contains('is-open')) return;
+    if(e.key === 'ArrowDown'){
+      e.preventDefault();
+      setActive(Math.min(activeIndex + 1, currentSuggestions.length - 1));
+    } else if(e.key === 'ArrowUp'){
+      e.preventDefault();
+      setActive(Math.max(activeIndex - 1, 0));
+    } else if(e.key === 'Enter'){
+      if(activeIndex >= 0 && currentSuggestions[activeIndex]){
+        e.preventDefault();
+        select(currentSuggestions[activeIndex]);
+      }
+    } else if(e.key === 'Escape'){
+      listEl.classList.remove('is-open');
+    }
+  });
+
+  inputEl.addEventListener('blur', () => {
+    setTimeout(() => listEl.classList.remove('is-open'), 120);
+  });
+  inputEl.addEventListener('focus', () => {
+    if(inputEl.value.trim()) render(getSuggestions(inputEl.value, productList));
+  });
 }

@@ -1,6 +1,5 @@
 /* ==========================================================
-   HOME PAGE — Projects teaser grid + local filter tabs.
-   Uses a small fixed preview set (full catalog lives in products.js).
+   HOME PAGE -- Projects teaser grid + local filter tabs + smart search
    ========================================================== */
 
 const TEASER_ITEMS = [
@@ -8,10 +7,10 @@ const TEASER_ITEMS = [
   { title: 'Modern Slat Gate', category: 'gates' },
   { title: 'Glass Staircase Railing', category: 'staircases' },
   { title: 'Balcony Glass Railing', category: 'railings' },
-  { title: 'HPL Facade Panel', category: 'elevation' },
-  { title: 'Carved Wooden Door Frame', category: 'interiors' },
-  { title: 'Stone Clad Elevation', category: 'elevation' },
-  { title: 'Brass Jali Screen', category: 'interiors' },
+  { title: 'HPL Facade Panel', category: 'facades' },
+  { title: 'Stone Clad Facade', category: 'facades' },
+  { title: 'Car Parking Shed', category: 'sheds' },
+  { title: 'Spiral Staircase', category: 'staircases' },
 ];
 
 (function initTeaser(){
@@ -41,4 +40,13 @@ const TEASER_ITEMS = [
       render(btn.dataset.filter);
     });
   });
+})();
+
+// ---------- SMART SEARCH DROPDOWN ----------
+// Lives in search-engine.js; here we just wire it to the homepage search bar.
+(function initHomeSearch(){
+  const input = document.getElementById('home-search');
+  const suggestionsEl = document.getElementById('home-search-suggestions');
+  if(!input || !suggestionsEl || typeof attachSearchDropdown !== 'function') return;
+  attachSearchDropdown(input, suggestionsEl, PRODUCTS);
 })();

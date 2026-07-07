@@ -239,7 +239,12 @@ input, select, textarea{ font-family: inherit; }
 .main-nav a:hover{ color: var(--yellow); }
 .main-nav a.is-active{ color: var(--yellow); border-color: var(--yellow); }
 
-.header-mark{ color: var(--white); flex-shrink: 0; opacity: 0.9; }
+.site-logo{
+  height: 38px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
 
 .menu-toggle{
   display: none;
@@ -377,6 +382,67 @@ input, select, textarea{ font-family: inherit; }
 }
 .hidden-field{ display: none; }
 .form-note{ font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; }
+
+/* ==========================================================
+   SMART SEARCH -- suggestions dropdown (shared: home + products page)
+   ========================================================== */
+.search-wrap{ position: relative; }
+
+.search-suggestions{
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0; right: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 60;
+  max-height: 360px;
+  overflow-y: auto;
+  text-align: left;
+}
+.search-suggestions.is-open{ display: block; }
+
+.search-suggestion{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+.search-suggestion:last-child{ border-bottom: none; }
+.search-suggestion:hover,
+.search-suggestion.is-active{ background: var(--bg-soft); }
+
+.ss-icon{
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--charcoal);
+}
+.suggestion-translation .ss-icon{ background: var(--yellow); color: var(--black); }
+.suggestion-category .ss-icon{ background: var(--mist); color: var(--charcoal); }
+
+.ss-text{ display: flex; flex-direction: column; min-width: 0; }
+.ss-label{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ss-sublabel{ font-size: 0.75rem; color: var(--text-muted); }
 
 /* ==========================================================
    FOOTER (content footer, sits above the fixed CTA bar)
