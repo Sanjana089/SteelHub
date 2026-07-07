@@ -354,15 +354,26 @@
   border-top: 1px solid var(--border);
 }
 .owner-card:last-child{ border-bottom: 1px solid var(--border); }
-.owner-avatar{
-  width: 52px; height: 52px;
+.owner-avatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--charcoal);
-  color: var(--yellow);
-  font-family: var(--font-display);
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
+  background: var(--charcoal); /* Shows through if image doesn't fill the circle */
+  overflow: hidden;            /* Clips image to a circle */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   flex-shrink: 0;
+}
+
+.owner-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Entire image fits inside the circle */
+  object-position: center;
+  display: block;
 }
 .owner-name{ font-weight: 700; color: var(--black); }
 .owner-role{ color: var(--text-muted); font-size: 0.85rem; }
@@ -393,20 +404,27 @@
   font-weight: 600;
 }
 
-.map-placeholder{
-  background: var(--mist);
-  border-radius: var(--radius-md);
-  aspect-ratio: 16/10;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.map-container {
+  width: 100%;
+  height: 320px;
+  border-radius: 20px;
   overflow: hidden;
-  background-image:
-    linear-gradient(rgba(56,56,56,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56,56,56,0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--yellow);
 }
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px;
+  }
+}
+
 .map-pin{
   position: absolute;
   display: flex;

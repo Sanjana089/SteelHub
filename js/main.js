@@ -11,7 +11,7 @@ const BUSINESS = {
   phoneHref: '+917973581010',
   whatsapp: '917973581010',
   email: 'ritviksingla1304@gmail.com',
-  address: 'Steel Hub, Model Tent House wali Gali, Birla Road Malout',
+  address: 'Steel Hub, Modern Tent House Wali Gali, Birla Road Malout',
 };
 
 // ---------- DEVICE DETECTION ----------

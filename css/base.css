@@ -240,7 +240,7 @@ input, select, textarea{ font-family: inherit; }
 .main-nav a.is-active{ color: var(--yellow); border-color: var(--yellow); }
 
 .site-logo{
-  height: 38px;
+  height: 58px;
   width: auto;
   flex-shrink: 0;
   display: block;

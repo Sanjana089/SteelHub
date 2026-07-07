@@ -37,8 +37,7 @@
       <a href="index.html#contact">Contact</a>
     </nav>
 
-    <!-- Replace public/images/logo.svg with your real logo (keep the filename, or update this src) -->
-    <img src="public/images/logo.svg" alt="TFabCo logo" class="site-logo">
+    <img src="public/images/logo.svg" alt="Steel Hub logo" class="site-logo">
 
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -51,12 +50,11 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-split">
-      <!-- Placeholder Cloudinary images -- replace the public ID after /upload/f_auto,q_auto,w_900,c_fill/ with your own -->
       <div class="hero-image hero-image--classic">
-        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1721586155/tech-rev_ybejet" alt="Placeholder — classic ornamental gate photo">
+        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1783428373/SteelHub/classic.png" alt="Placeholder — classic ornamental gate photo">
       </div>
       <div class="hero-image hero-image--modern">
-        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1721586155/tech-rev_ybejet" alt="Placeholder — modern facade photo">
+        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1783428373/SteelHub/modern.png" alt="Placeholder — modern facade photo">
       </div>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
@@ -83,7 +81,7 @@
       <p class="search-label">What are you looking for?</p>
       <div class="search-wrap">
         <form action="products.html" method="GET" class="search-form" role="search" autocomplete="off">
-          <input type="search" name="search" id="home-search" placeholder="Search in English or Punjabi — gate, ਫਾਟਕ, phatak, sirhi…" aria-label="Search products">
+          <input type="search" name="search" id="home-search" placeholder="Search for gates, railings, facade" aria-label="Search products">
           <button type="submit" aria-label="Search">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
           </button>
@@ -120,7 +118,7 @@
         </div>
         <div class="feature-card card card-glass">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <p>Rust &amp; Weather Resistant</p>
+          <p>Modern Technology</p>
         </div>
         <div class="feature-card card card-glass">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -134,9 +132,9 @@
   <section class="services" id="services">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow accent">What We Build</p>
-        <h2 class="section-title">Services</h2>
-        <p class="section-sub">Every category below links straight to filtered projects, so you can browse exactly the kind of work you need.</p>
+        <p class="eyebrow accent">What We Offer</p>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">We provide a wide range of services to meet your elevation needs to make your home look "aam ton agge".</p>
       </div>
 
       <div class="services-grid">
@@ -160,6 +158,10 @@
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10 12 4l9 6M5 10v10h14V10"/></svg>
           <span>Sheds &amp; Pergolas</span>
         </a>
+        <a href="products.html?type=shingles" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10 12 4l9 6M5 10v10h14V10"/></svg>
+          <span>Shingles</span>
+        </a>
       </div>
     </div>
   </section>
@@ -175,8 +177,9 @@
         <div class="material-chip"><span class="swatch" style="background:#2b2b2b"></span>Cast Iron</div>
         <div class="material-chip"><span class="swatch" style="background:#c9ccce"></span>Stainless Steel</div>
         <div class="material-chip"><span class="swatch" style="background:#8a6f4d"></span>Aluminium</div>
-        <div class="material-chip"><span class="swatch" style="background:#b08d57"></span>HPL Panels &amp; Louvers</div>
-        <div class="material-chip"><span class="swatch" style="background:#e7e2d8"></span>UPVC Shed</div>
+        <div class="material-chip"><span class="swatch" style="background:#b08d57"></span>HPL &amp; WPC Louvers</div>
+        <div class="material-chip"><span class="swatch" style="background:#e7e2d8"></span>UPVC (Shed)</div>
+        <div class="material-chip"><span class="swatch" style="background:#9f9285"></span>ACP (Aluminium Composite Profile)</div>
         <div class="material-chip"><span class="swatch" style="background:#9b9285"></span>Shingles</div>
       </div>
     </div>
@@ -284,16 +287,20 @@
       <div class="owners">
         <p class="eyebrow" style="margin-bottom:18px;">Meet the Owners</p>
         <div class="owner-card">
-          <div class="owner-avatar" aria-hidden="true">TS</div>
+          <div class="owner-avatar" aria-hidden="true">
+            <img src="public/images/ritvik.jpg" alt="Ritvik Singla"/>
+          </div>
           <div>
-            <p class="owner-name">Taranpreet Singh</p>
+            <p class="owner-name">Ritvik Singla</p>
             <p class="owner-role">Co-Founder</p>
           </div>
         </div>
         <div class="owner-card">
-          <div class="owner-avatar" aria-hidden="true">GS</div>
+          <div class="owner-avatar" aria-hidden="true">            
+            <img src="public/images/ashwani.png" alt="Ashwani Singla"/>
+          </div>
           <div>
-            <p class="owner-name">Gagandeep Singh</p>
+            <p class="owner-name">Ashwani Singla</p>
             <p class="owner-role">Co-Founder</p>
           </div>
         </div>
@@ -306,18 +313,13 @@
     <div class="container locate-grid">
       <div>
         <p class="eyebrow accent">Locate Us</p>
-        <h2 class="section-title" style="text-align:left; margin-bottom:18px;">TFabCo Workshop</h2>
-        <p class="locate-line"><strong>Address</strong><br><span data-business="address">123 Industrial Area, Phase 1, Ludhiana, Punjab 141003</span></p>
-        <p class="locate-line"><strong>Phone</strong><br><a data-business="phone" href="tel:+919876543210">+91 98765 43210</a></p>
-        <p class="locate-line"><strong>Hours</strong><br><span data-business="hours">Mon–Sat, 9:00 AM – 7:00 PM</span></p>
+        <h2 class="section-title" style="text-align:left; margin-bottom:18px;">Steel Hub</h2>
+        <p class="locate-line"><strong>Address</strong><br><span data-business="address">Steel Hub, Modern Tent House wali Gali, Birla Road Malout, Punjab 152107</span></p>
+        <p class="locate-line"><strong>Phone</strong><br><a data-business="phone" href="tel:+919876543210">+91 7973581010</a></p>
         <a href="#" class="btn btn-primary" data-open-modal="estimate-modal" style="margin-top:20px;">Get a Free Estimate</a>
       </div>
-      <div class="map-placeholder" role="img" aria-label="Placeholder map — embed Google Maps here">
-        <span class="img-tag">Map placeholder — embed Google Maps iframe</span>
-        <span class="map-pin">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#000"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-          TFabCo
-        </span>
+      <div class="map-container" role="img" aria-label="Google Map location">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.0921373372216!2d74.50482997079494!3d30.187503091186507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917170063430a01%3A0x756fbe0c80d1166a!2sHome!5e0!3m2!1sen!2sin!4v1783426930897!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
   </section>
@@ -331,9 +333,9 @@
       <a href="index.html" class="brand">TFabCo<span class="dot">.</span></a>
       <p>Premium metal fabrication and facade solutions — classic craftsmanship, modern technology.</p>
       <div class="social-row" aria-label="Social media">
-        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.1C16.6 1 15.5 1 14.5 1 11.5 1 9.5 3 9.5 6.4V9h-3v4h3v9h3.5z"/></svg></a>
-        <a href="#" aria-label="WhatsApp" data-whatsapp-link><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.7-.8c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.4.4.1.2.1 1-.1 1.6z"/></svg></a>
+        <a href="https://www.instagram.com/thefabricationco/" target="blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <!-- <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.1C16.6 1 15.5 1 14.5 1 11.5 1 9.5 3 9.5 6.4V9h-3v4h3v9h3.5z"/></svg></a> -->
+        <a href="#" aria-label="WhatsApp" target="blank" data-whatsapp-link><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.7-.8c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.4.4.1.2.1 1-.1 1.6z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -365,7 +367,6 @@
   </div>
   <div class="container footer-bottom">
     <span>© 2026 TFabCo. All rights reserved.</span>
-    <span>Placeholder content — replace logo, photos and contact details before publishing.</span>
   </div>
 </footer>
 
