@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TFabCo — Aam ton agge</title>
+<meta name="description" content="Premium fabrication of gates, railings, staircases and facade solutions. Classic and modern styles, built to last.">
+
+<!-- Hidden static form so Netlify's build-time bot can detect the Estimate form -->
+<form name="estimate-request" data-netlify="true" hidden>
+  <input type="text" name="name">
+  <input type="tel" name="phone">
+  <select name="project_type"><option>Gate</option></select>
+  <textarea name="message"></textarea>
+</form>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23feda15' font-family='Georgia'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a href="index.html" class="brand">TFabCo<span class="dot">.</span></a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="is-active">Home</a>
+      <a href="products.html">Projects</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#materials">Materials</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <span class="header-mark" aria-hidden="true">
+      <img src="images/logo.png" alt="TFabCo logo" width="120" height="100">
+    </span>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-split">
+      <div class="hero-image hero-image--classic" role="img" aria-label="Placeholder — classic ornamental gate photo">
+        <span class="img-tag">Placeholder photo</span>
+      </div>
+      <div class="hero-image hero-image--modern" role="img" aria-label="Placeholder — modern facade photo">
+        <span class="img-tag">Placeholder photo</span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Crafting Spaces<br>That Define You.</h1>
+      <p class="hero-tagline">Two Styles. One Promise.<br>Timeless Quality.</p>
+      <div class="hero-actions">
+        <a href="products.html?style=classic" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21h16M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+          Explore Classic
+        </a>
+        <a href="products.html?style=modern" class="btn btn-dark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44a.98.98 0 0 1-.94 0l-7.9-4.44A1 1 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44a.98.98 0 0 1 .94 0l7.9 4.44c.32.17.53.5.53.88v9z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          Explore Modern
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEARCH ============ -->
+  <section class="search-section">
+    <div class="container">
+      <p class="search-label">What are you looking for?</p>
+      <form action="products.html" method="GET" class="search-form" role="search">
+        <input type="search" name="search" placeholder="Search for gates, railings, staircases, cladding, facades…" aria-label="Search products">
+        <button type="submit" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES / USPs ============ -->
+  <section class="features">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Not Common Fabrication</h2>
+        <p class="tagline-script">ਆਮ ਤੋਂ ਅੱਗੇ</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 8 8h8l-4-6zM4 8l3 13h10l3-13M4 8h16"/></svg>
+          <p>Premium Quality</p>
+        </div>
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 7 3 3-9 9-4 1 1-4 9-9zM17 4l3 3"/></svg>
+          <p>Custom Designs</p>
+        </div>
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4z"/></svg>
+          <p>Strong &amp; Durable</p>
+        </div>
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 19 7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586M11 13a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg>
+          <p>Precision Fabrication</p>
+        </div>
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p>Rust &amp; Weather Resistant</p>
+        </div>
+        <div class="feature-card card card-glass">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <p>Timely Delivery &amp; Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow accent">What We Build</p>
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">Every category below links straight to filtered projects, so you can browse exactly the kind of work you need.</p>
+      </div>
+
+      <div class="services-grid">
+        <a href="products.html?type=gates" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V5h16v16M4 12h16M9 5v16M15 5v16"/></svg>
+          <span>Gates</span>
+        </a>
+        <a href="products.html?type=railings" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M3 20V8M21 20V8M7 20V10M11 20V10M15 20V10M19 20V10"/></svg>
+          <span>Railings</span>
+        </a>
+        <a href="products.html?type=staircases" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21v-4h4v-4h4v-4h4V5h4"/></svg>
+          <span>Staircases</span>
+        </a>
+        <a href="products.html?type=elevation" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="18"/><rect x="13" y="3" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+          <span>Elevation Cladding</span>
+        </a>
+        <a href="products.html?type=interiors" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21V13h6v8"/></svg>
+          <span>Facades</span>
+        </a>
+        <a href="products.html?type=sheds" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10 12 4l9 6M5 10v10h14V10"/></svg>
+          <span>Sheds &amp; Pergolas</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MATERIALS ============ -->
+  <section class="materials" id="materials">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow accent">What We Work With</p>
+        <h2 class="section-title">Materials</h2>
+      </div>
+      <div class="materials-grid">
+        <div class="material-chip"><span class="swatch" style="background:#2b2b2b"></span>Cast Iron</div>
+        <div class="material-chip"><span class="swatch" style="background:#c9ccce"></span>Stainless Steel</div>
+        <div class="material-chip"><span class="swatch" style="background:#8a6f4d"></span>Aluminium</div>
+        <div class="material-chip"><span class="swatch" style="background:#b08d57"></span>HPL Panels &amp; Louvers</div>
+        <div class="material-chip"><span class="swatch" style="background:#e7e2d8"></span>UPVC Shed</div>
+        <div class="material-chip"><span class="swatch" style="background:#9b9285"></span>Shingles</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS TEASER ============ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Our Projects</h2>
+      </div>
+
+      <div class="filter-tabs" role="tablist" aria-label="Filter project preview">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="gates">Gates</button>
+        <button class="filter-btn" data-filter="railings">Railings</button>
+        <button class="filter-btn" data-filter="staircases">Staircases</button>
+        <button class="filter-btn" data-filter="elevation">Elevation</button>
+        <button class="filter-btn" data-filter="interiors">Interiors</button>
+      </div>
+
+      <div class="teaser-grid" id="teaser-grid"><!-- populated by home.js --></div>
+
+      <div class="text-center" style="margin-top:36px;">
+        <a href="products.html" class="btn btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="process">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow accent">How It Works</p>
+        <h2 class="section-title">From Sketch to Site</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <h4>Consultation</h4>
+          <p>Share your requirement — we visit your site or review your drawings.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <h4>Design</h4>
+          <p>We finalize style, material and measurements before any cutting begins.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <h4>Fabrication</h4>
+          <p>Built in our workshop with precision tooling and quality checks.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <h4>Installation</h4>
+          <p>Delivered and fitted on site by our own installation team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card card">
+          <p class="quote-mark">&ldquo;</p>
+          <p class="quote-text">TFabCo delivered more than what we imagined. The quality and finish are truly exceptional.</p>
+          <footer>
+            <span class="quote-author">— Rajesh Verma</span>
+            <span class="stars">★★★★★</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card card">
+          <p class="quote-mark">&ldquo;</p>
+          <p class="quote-text">Professional team, creative designs and on-time delivery. Highly recommended!</p>
+          <footer>
+            <span class="quote-author">— Neha Sharma</span>
+            <span class="stars">★★★★★</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card card">
+          <p class="quote-mark">&ldquo;</p>
+          <p class="quote-text">The attention to detail and the strength of their work is simply unmatched.</p>
+          <footer>
+            <span class="quote-author">— Amit Bansal</span>
+            <span class="stars">★★★★★</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT + OWNERS ============ -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow accent">About Us</p>
+        <h2 class="section-title" style="text-align:left; margin-bottom:16px;">Built on craft. Backed by two founders.</h2>
+        <p class="about-text">TFabCo is a premium fabrication company specializing in gates, railings, staircases and facade solutions. We blend classical craftsmanship with modern technology to create designs that are timeless, strong and elegant.</p>
+      </div>
+
+      <div class="owners">
+        <p class="eyebrow" style="margin-bottom:18px;">Meet the Owners</p>
+        <div class="owner-card">
+          <div class="owner-avatar" aria-hidden="true">TS</div>
+          <div>
+            <p class="owner-name">Taranpreet Singh</p>
+            <p class="owner-role">Co-Founder</p>
+          </div>
+        </div>
+        <div class="owner-card">
+          <div class="owner-avatar" aria-hidden="true">GS</div>
+          <div>
+            <p class="owner-name">Gagandeep Singh</p>
+            <p class="owner-role">Co-Founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATE US / CONTACT ============ -->
+  <section class="locate" id="contact">
+    <div class="container locate-grid">
+      <div>
+        <p class="eyebrow accent">Locate Us</p>
+        <h2 class="section-title" style="text-align:left; margin-bottom:18px;">TFabCo Workshop</h2>
+        <p class="locate-line"><strong>Address</strong><br><span data-business="address">123 Industrial Area, Phase 1, Ludhiana, Punjab 141003</span></p>
+        <p class="locate-line"><strong>Phone</strong><br><a data-business="phone" href="tel:+919876543210">+91 98765 43210</a></p>
+        <p class="locate-line"><strong>Hours</strong><br><span data-business="hours">Mon–Sat, 9:00 AM – 7:00 PM</span></p>
+        <a href="#" class="btn btn-primary" data-open-modal="estimate-modal" style="margin-top:20px;">Get a Free Estimate</a>
+      </div>
+      <div class="map-placeholder" role="img" aria-label="Placeholder map — embed Google Maps here">
+        <span class="img-tag">Map placeholder — embed Google Maps iframe</span>
+        <span class="map-pin">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#000"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+          TFabCo
+        </span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER (content) ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">TFabCo<span class="dot">.</span></a>
+      <p>Premium metal fabrication and facade solutions — classic craftsmanship, modern technology.</p>
+      <div class="social-row" aria-label="Social media">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.1C16.6 1 15.5 1 14.5 1 11.5 1 9.5 3 9.5 6.4V9h-3v4h3v9h3.5z"/></svg></a>
+        <a href="#" aria-label="WhatsApp" data-whatsapp-link><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.7-.8c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.4.4.1.2.1 1-.1 1.6z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#materials">Materials</a></li>
+        <li><a href="products.html">Projects</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="products.html?type=gates">Gates</a></li>
+        <li><a href="products.html?type=railings">Railings</a></li>
+        <li><a href="products.html?type=staircases">Staircases</a></li>
+        <li><a href="products.html?type=elevation">Elevation Cladding</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a data-business="phone" href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><a data-business="email" href="mailto:info@tfabco.in">info@tfabco.in</a></li>
+        <li><span data-business="address">123 Industrial Area, Phase 1, Ludhiana, Punjab</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 TFabCo. All rights reserved.</span>
+    <span>Placeholder content — replace logo, photos and contact details before publishing.</span>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA BAR ============ -->
+<nav class="cta-bar" aria-label="Quick contact">
+  <a href="#" class="cta-bar-item" data-call-button>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+    <span>Call Us</span><span class="label-mobile">Call</span>
+  </a>
+  <a href="#" class="cta-bar-item" data-whatsapp-link target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.7-.8c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.4.4.1.2.1 1-.1 1.6z"/></svg>
+    <span>WhatsApp</span><span class="label-mobile">Chat</span>
+  </a>
+  <a href="#" class="cta-bar-item" data-open-modal="estimate-modal">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <span>Get an Estimate</span><span class="label-mobile">Estimate</span>
+  </a>
+</nav>
+
+<!-- ============ CALL POPOVER (desktop only) ============ -->
+<div class="modal-overlay" id="call-popover">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="call-popover-title">
+    <button class="modal-close" aria-label="Close">✕</button>
+    <p class="modal-eyebrow">Reach Us Directly</p>
+    <h3 id="call-popover-title">Contact TFabCo</h3>
+
+    <div class="contact-line">
+      <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span>
+      <div class="ci-text"><span>Phone</span><a data-business="phone" href="tel:+919876543210">+91 98765 43210</a></div>
+    </div>
+    <div class="contact-line">
+      <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.2-3.6-.8-3-1.2-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.7-.8c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.4.4.1.2.1 1-.1 1.6z"/></svg></span>
+      <div class="ci-text"><span>WhatsApp</span><a href="#" data-whatsapp-link target="_blank" rel="noopener">Chat with us</a></div>
+    </div>
+    <div class="contact-line">
+      <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="m22 6-10 7L2 6M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></span>
+      <div class="ci-text"><span>Email</span><a data-business="email" href="mailto:info@tfabco.in">info@tfabco.in</a></div>
+    </div>
+    <div class="contact-line">
+      <span class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <div class="ci-text"><span>Workshop</span><p data-business="address">123 Industrial Area, Phase 1, Ludhiana, Punjab 141003</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ESTIMATE MODAL ============ -->
+<div class="modal-overlay" id="estimate-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title">
+    <button class="modal-close" aria-label="Close">✕</button>
+    <p class="modal-eyebrow">Quick Request</p>
+    <h3 id="estimate-modal-title">Get a Free Estimate</h3>
+
+    <form name="estimate-request" method="POST" data-ajax-form data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="estimate-request">
+      <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="field">
+        <label for="est-name">Name</label>
+        <input id="est-name" type="text" name="name" required>
+      </div>
+      <div class="field">
+        <label for="est-phone">Phone</label>
+        <input id="est-phone" type="tel" name="phone" required>
+      </div>
+      <div class="field">
+        <label for="est-type">Project Type</label>
+        <select id="est-type" name="project_type">
+          <option>Gate</option>
+          <option>Railing / Staircase</option>
+          <option>Elevation Cladding</option>
+          <option>Interior</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="est-msg">Details</label>
+        <textarea id="est-msg" name="message" rows="3" placeholder="Approximate size, style, location..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Send Request</button>
+    </form>
+    <div class="form-success" style="display:none;">
+      <p style="font-weight:600; margin-bottom:8px;">Thanks — request received!</p>
+      <p class="form-note">We'll get back to you shortly. For anything urgent, call or WhatsApp us using the bar below.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
