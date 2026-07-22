@@ -43,6 +43,65 @@ const state = {
   types: [],    // e.g. ['gates']
 };
 
+function getProductStyles(product){
+  const rawStyles = Array.isArray(product?.styles)
+    ? product.styles
+    : Array.isArray(product?.style)
+      ? product.style
+      : (product?.style ? [product.style] : []);
+  return rawStyles.map(v => String(v).toLowerCase()).filter(Boolean);
+}
+
+function formatStyleLabel(style){
+  const normalized = String(style || '').trim();
+  if(!normalized) return '';
+  return normalized[0].toUpperCase() + normalized.slice(1);
+}
+
+// ---------- PRODUCT TYPE MAPPINGS BY STYLE ----------
+const TYPES_BY_STYLE = {
+  modern: [
+    { id: 'cnc-acp-facade', label: 'CNC/ACP Facade' },
+    { id: 'rafters', label: 'Rafters' },
+    { id: 'acp-ms-channels', label: 'ACP/MS Channels' },
+    { id: 'gates', label: 'Gates' },
+    { id: 'flexi-tiles', label: 'Flexi Tiles' },
+    { id: 'handles', label: 'Handles' },
+    { id: 'aluminium-louvres', label: 'Aluminium Louvres' },
+    { id: 'railing', label: 'Railing' },
+    { id: 'staircase', label: 'Fabricated Staircase' },
+  ],
+  classic: [
+    { id: 'shingles', label: 'Shingles' },
+    { id: 'stone-cladding', label: 'Stone Cladding' },
+    { id: 'cast-iron-degi', label: 'Cast Iron (Degi)' },
+    { id: 'mild-steel', label: 'Mild Steel' },
+    { id: 'acp-panel', label: 'ACP Panel' },
+    { id: 'hpl-clad', label: 'HPL Clad' },
+    { id: 'railing', label: 'Railing' },
+    { id: 'gates', label: 'Gates' },
+    { id: 'staircase', label: 'Fabricated Staircase' },
+  ],
+  all: [
+    { id: 'sheds', label: 'Sheds & Canopies' },
+    { id: 'gates', label: 'Gates' },
+    { id: 'railing', label: 'Railing' },
+    { id: 'staircase', label: 'Fabricated Staircase' },
+    { id: 'cnc-acp-facade', label: 'CNC/ACP Facade' },
+    { id: 'rafters', label: 'Rafters' },
+    { id: 'acp-ms-channels', label: 'ACP/MS Channels' },
+    { id: 'flexi-tiles', label: 'Flexi Tiles' },
+    { id: 'handles', label: 'Handles' },
+    { id: 'aluminium-louvres', label: 'Aluminium Louvres' },
+    { id: 'shingles', label: 'Shingles' },
+    { id: 'stone-cladding', label: 'Stone Cladding' },
+    { id: 'cast-iron-degi', label: 'Cast Iron (Degi)' },
+    { id: 'mild-steel', label: 'Mild Steel' },
+    { id: 'acp-panel', label: 'ACP Panel' },
+    { id: 'hpl-clad', label: 'HPL Clad' },
+  ],
+};
+
 function readStateFromURL(){
   const params = new URLSearchParams(window.location.search);
   state.search = params.get('search') || '';
@@ -64,16 +123,63 @@ function syncControlsFromState(){
   document.querySelectorAll('.chip-toggle').forEach(btn => {
     btn.classList.toggle('is-active', state.styles.includes(btn.dataset.value));
   });
-  document.querySelectorAll('.check-list input[type="checkbox"]').forEach(input => {
+  updateTypeFilterUI();
+  document.querySelectorAll('#type-filter-list input[type="checkbox"]').forEach(input => {
     input.checked = state.types.includes(input.value);
+  });
+}
+
+function updateTypeFilterUI(){
+  const typeList = document.getElementById('type-filter-list');
+  if(!typeList) return;
+
+  // Determine which types to show
+  let availableTypes = [];
+  if(state.styles.length === 0){
+    // Show all types when no style is selected
+    availableTypes = TYPES_BY_STYLE.all;
+  } else if(state.styles.length === 1){
+    // Show types for the selected style
+    const style = state.styles[0];
+    availableTypes = TYPES_BY_STYLE[style] || [];
+  } else {
+    // Show union of types when multiple styles are selected so the full set remains available
+    const typeSets = state.styles.map(s => new Set((TYPES_BY_STYLE[s] || []).map(t => t.id)));
+    if(typeSets.length > 0){
+      const union = new Set();
+      typeSets.forEach(set => set.forEach(id => union.add(id)));
+      availableTypes = TYPES_BY_STYLE.all.filter(t => union.has(t.id));
+    }
+  }
+
+  // Clear and rebuild the type filter list
+  typeList.innerHTML = '';
+  availableTypes.forEach(type => {
+    const label = document.createElement('label');
+    label.className = 'check-item';
+    label.innerHTML = `<input type="checkbox" value="${type.id}"><span>${type.label}</span>`;
+    typeList.appendChild(label);
+  });
+
+  // Re-attach event listeners for new checkboxes
+  document.querySelectorAll('#type-filter-list input[type="checkbox"]').forEach(input => {
+    input.addEventListener('change', () => {
+      const v = input.value;
+      state.types = input.checked ? [...state.types, v] : state.types.filter(x=>x!==v);
+      applyAndRender();
+    });
   });
 }
 
 // ---------- FILTERING (facets first, then smart search ranking) ----------
 function getFilteredProducts(){
+  // Map new type IDs to product types for filtering
+  const productTypesToFilter = state.types.map(typeId => mapTypeIdToProductType(typeId)).filter(Boolean);
+
   let candidates = PRODUCTS.filter(p => {
-    if(state.styles.length && !state.styles.includes(p.style)) return false;
-    if(state.types.length && !state.types.includes(p.type)) return false;
+    const productStyles = getProductStyles(p);
+    if(state.styles.length && !state.styles.some(style => productStyles.includes(style))) return false;
+    if(productTypesToFilter.length && !productTypesToFilter.includes(p.type)) return false;
     return true;
   });
 
@@ -86,7 +192,33 @@ function getFilteredProducts(){
   return candidates;
 }
 
+function mapTypeIdToProductType(typeId){
+  // Map new type IDs to old product type system
+  const mapping = {
+    'gates': 'gates',
+    'railing': 'railings',
+    'staircase': 'staircases',
+    'cnc-acp-facade': 'facades',
+    'shingles': 'facades',
+    'stone-cladding': 'facades',
+    'cast-iron-degi': 'railings',
+    'mild-steel': 'railings',
+    'acp-panel': 'facades',
+    'hpl-clad': 'facades',
+    'rafters': 'sheds',
+    'acp-ms-channels': 'sheds',
+    'flexi-tiles': 'sheds',
+    'handles': 'railings',
+    'aluminium-louvres': 'facades',
+    'sheds': 'sheds',
+  };
+  return mapping[typeId] || null;
+}
+
 // ---------- RENDER ----------
+
+// carousel timers (cleared on each render)
+let _carouselTimers = [];
 function renderChips(){
   const wrap = document.getElementById('active-chips');
   wrap.innerHTML = '';
@@ -94,7 +226,10 @@ function renderChips(){
 
   if(state.search) chips.push({ label: `"${state.search}"`, clear: () => { state.search = ''; } });
   state.styles.forEach(v => chips.push({ label: v[0].toUpperCase()+v.slice(1), clear: () => { state.styles = state.styles.filter(x=>x!==v); } }));
-  state.types.forEach(v => chips.push({ label: TYPE_LABELS[v] || v, clear: () => { state.types = state.types.filter(x=>x!==v); } }));
+  state.types.forEach(v => {
+    const label = getTypeLabel(v);
+    chips.push({ label, clear: () => { state.types = state.types.filter(x=>x!==v); } });
+  });
 
   chips.forEach(chip => {
     const el = document.createElement('span');
@@ -108,6 +243,15 @@ function renderChips(){
   });
 }
 
+function getTypeLabel(typeId){
+  // Search through all type mappings to find the label
+  for(const styleTypes of Object.values(TYPES_BY_STYLE)){
+    const found = styleTypes.find(t => t.id === typeId);
+    if(found) return found.label;
+  }
+  return TYPE_LABELS[typeId] || typeId;
+}
+
 function renderProducts(){
   const grid = document.getElementById('product-grid');
   const emptyState = document.getElementById('empty-state');
@@ -118,30 +262,89 @@ function renderProducts(){
     ? `Showing ${results.length} product${results.length === 1 ? '' : 's'}`
     : 'No products found';
 
+  // clear any running carousel timers before re-rendering
+  _carouselTimers.forEach(t => clearInterval(t));
+  _carouselTimers = [];
   grid.innerHTML = '';
   emptyState.hidden = results.length > 0;
 
   results.forEach(p => {
     const card = document.createElement('article');
     card.className = 'product-card card';
-    const imgUrl = cloudinaryUrl(p.image, { width: 500 });
+    // support multiple images per product (fallback to single image)
+    const imgs = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : [PLACEHOLDER_IMAGE]);
     const fallbackSvg = patternSVG(p.pattern).replace(/"/g, '&quot;');
+    const mediaInner = imgs.map((id, i) => {
+      const url = cloudinaryUrl(id, { width: 500 });
+      return `<img src="${url}" alt="${p.name} ${i+1}" loading="lazy" data-index="${i}" onerror="this.style.display='none'">`;
+    }).join('');
+    const dotsInner = imgs.map((_, i) => `<button class="carousel-dot" data-index="${i}" aria-label="Show image ${i+1}"></button>`).join('');
+
+    const productStyles = getProductStyles(p);
+    const badgesHtml = productStyles.length
+      ? `<div class="product-badges">${productStyles.map(style => `<span class="product-badge">${formatStyleLabel(style)}</span>`).join('')}</div>`
+      : '';
+
     card.innerHTML = `
-      <div class="product-media">
-        <img src="${imgUrl}" alt="${p.name}" loading="lazy"
-             onerror="this.outerHTML = '${fallbackSvg}'">
-        <span class="product-badge">${p.style[0].toUpperCase()+p.style.slice(1)}</span>
+      <div class="product-media" data-images="${imgs.length}" data-product-id="${p.id}">
+        ${mediaInner}
+        <div class="carousel-dots">${dotsInner}</div>
+        ${badgesHtml}
       </div>
       <div class="product-body">
         <span class="product-type">${TYPE_LABELS[p.type]}</span>
         <h3 class="product-name">${p.name}</h3>
-        <div class="product-colors">${p.colors.map(c=>`<span style="background:${COLOR_HEX[c]}"></span>`).join('')}</div>
+        <div class="product-colors">${p.colors.map(c=>`<span style="background:${getColorHex(c)}"></span>`).join('')}</div>
         <div class="product-actions">
           <button class="btn btn-outline btn-sm btn-block" data-open-modal="estimate-modal">Enquire</button>
         </div>
       </div>
     `;
     grid.appendChild(card);
+
+    // if multiple images, mark first as active and set up carousel
+    const mediaEl = card.querySelector('.product-media');
+    const imgEls = Array.from(mediaEl.querySelectorAll('img'));
+    if(imgEls.length > 1){
+      imgEls.forEach((img,i)=> img.classList.toggle('active', i===0));
+      // dots
+      const dotsWrap = mediaEl.querySelector('.carousel-dots');
+      const dotEls = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
+      dotEls.forEach((d,i)=> d.classList.toggle('active', i===0));
+
+      // auto-rotate
+      const timer = setInterval(() => {
+        const cur = mediaEl.querySelector('img.active');
+        const idx = imgEls.indexOf(cur);
+        const nextIdx = (idx+1) % imgEls.length;
+        const next = imgEls[nextIdx];
+        if(cur) cur.classList.remove('active');
+        if(next) next.classList.add('active');
+        dotEls.forEach((d,i)=> d.classList.toggle('active', i===nextIdx));
+      }, 3000);
+      _carouselTimers.push(timer);
+
+      // dot click handlers
+      dotEls.forEach((d,i)=> d.addEventListener('click', (ev)=>{
+        // stop auto-rotation briefly
+        _carouselTimers.forEach(t=> clearInterval(t)); _carouselTimers = [];
+        imgEls.forEach(img=> img.classList.remove('active'));
+        imgEls[i].classList.add('active');
+        dotEls.forEach(x=> x.classList.remove('active'));
+        d.classList.add('active');
+      }));
+
+    } else if(imgEls.length === 1){
+      imgEls[0].classList.add('active');
+    }
+
+    // open lightbox when clicking the media area
+    mediaEl.addEventListener('click', () => {
+      const startIndex = parseInt(mediaEl.querySelector('img.active')?.dataset.index || '0', 10);
+      if(window.openProductLightbox){
+        window.openProductLightbox(p, startIndex);
+      }
+    });
   });
 }
 
@@ -163,17 +366,13 @@ function applyAndRender(){
     btn.addEventListener('click', () => {
       const v = btn.dataset.value;
       state.styles = state.styles.includes(v) ? state.styles.filter(x=>x!==v) : [...state.styles, v];
+      // Clear types when style changes since available types depend on style
+      state.types = [];
       applyAndRender();
     });
   });
 
-  document.querySelectorAll('.check-list input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', () => {
-      const v = input.value;
-      state.types = input.checked ? [...state.types, v] : state.types.filter(x=>x!==v);
-      applyAndRender();
-    });
-  });
+  // Type checkboxes are now dynamically created, so listeners are attached in updateTypeFilterUI()
 
   const bannerInput = document.getElementById('banner-search');
   bannerInput.closest('form').addEventListener('submit', (e) => {

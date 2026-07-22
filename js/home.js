@@ -3,14 +3,14 @@
    ========================================================== */
 
 const TEASER_ITEMS = [
-  { title: 'Ornamental Entry Gate', category: 'gates' },
-  { title: 'Modern Slat Gate', category: 'gates' },
-  { title: 'Glass Staircase Railing', category: 'staircases' },
-  { title: 'Balcony Glass Railing', category: 'railings' },
-  { title: 'HPL Facade Panel', category: 'facades' },
-  { title: 'Stone Clad Facade', category: 'facades' },
-  { title: 'Car Parking Shed', category: 'sheds' },
-  { title: 'Spiral Staircase', category: 'staircases' },
+  { title: 'Ornamental Entry Gate', style: 'classic' },
+  { title: 'Modern Slat Gate', style: 'modern' },
+  { title: 'Glass Staircase Railing', style: 'modern' },
+  { title: 'Balcony Glass Railing', style: 'modern' },
+  { title: 'HPL Facade Panel', style: 'modern' },
+  { title: 'Stone Clad Facade', style: 'classic' },
+  { title: 'Car Parking Shed', style: 'sheds' },
+  { title: 'Spiral Staircase', style: 'classic' },
 ];
 
 (function initTeaser(){
@@ -20,11 +20,12 @@ const TEASER_ITEMS = [
   function render(filter){
     grid.innerHTML = '';
     TEASER_ITEMS
-      .filter(item => filter === 'all' || item.category === filter)
+      .filter(item => filter === 'all' || item.style === filter)
       .slice(0, 8)
       .forEach(item => {
         const card = document.createElement('a');
-        card.href = 'products.html?type=' + item.category;
+        const styleParam = item.style === 'sheds' ? 'type=sheds' : 'style=' + item.style;
+        card.href = 'products.html?' + styleParam;
         card.className = 'teaser-card';
         card.innerHTML = `<span class="teaser-caption">${item.title}</span>`;
         grid.appendChild(card);

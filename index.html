@@ -30,7 +30,7 @@
 
     <nav class="main-nav" id="main-nav">
       <a href="index.html" class="is-active">Home</a>
-      <a href="products.html">Projects</a>
+      <a href="products.html">Products</a>
       <a href="index.html#about">About Us</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#materials">Materials</a>
@@ -40,7 +40,7 @@
     <img src="public/images/logo.svg" alt="Steel Hub logo" class="site-logo">
 
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+      <svg class="menu-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
   </div>
 </header>
@@ -51,7 +51,7 @@
   <section class="hero">
     <div class="hero-split">
       <div class="hero-image hero-image--classic">
-        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1783428373/SteelHub/classic.png" alt="Placeholder — classic ornamental gate photo">
+        <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1783789078/SteelHub/classic.png" alt="Placeholder — classic ornamental gate photo">
       </div>
       <div class="hero-image hero-image--modern">
         <img src="https://res.cloudinary.com/dvcrmkuca/image/upload/f_auto,q_auto,w_900,c_fill/v1783428373/SteelHub/modern.png" alt="Placeholder — modern facade photo">
@@ -60,7 +60,7 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <h1>Crafting Spaces<br>That Define You.</h1>
+      <h1>Crafting Elevation<br>Extraordinary.</h1>
       <p class="hero-tagline">Two Styles. One Promise.<br>Timeless Quality.</p>
       <div class="hero-actions">
         <a href="products.html?style=classic" class="btn btn-primary">
@@ -117,7 +117,16 @@
           <p>Precision Fabrication</p>
         </div>
         <div class="feature-card card card-glass">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20l8-8" />
+            <path d="M10 8l4-4" />
+            <path d="M14 4l2 2" />
+            <path d="M13 11l2 2" />
+            <path d="M18 8l1-2" />
+            <path d="M19 12h2" />
+            <path d="M18 16l1 2" />
+          </svg>
           <p>Modern Technology</p>
         </div>
         <div class="feature-card card card-glass">
@@ -138,29 +147,17 @@
       </div>
 
       <div class="services-grid">
-        <a href="products.html?type=gates" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V5h16v16M4 12h16M9 5v16M15 5v16"/></svg>
-          <span>Gates</span>
+        <a href="products.html?style=modern" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v18H3V3M7 7h10v10H7V7M9 9h6v6H9V9"/></svg>
+          <span>Modern Elevation</span>
         </a>
-        <a href="products.html?type=railings" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M3 20V8M21 20V8M7 20V10M11 20V10M15 20V10M19 20V10"/></svg>
-          <span>Railings</span>
-        </a>
-        <a href="products.html?type=staircases" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21v-4h4v-4h4v-4h4V5h4"/></svg>
-          <span>Staircases</span>
-        </a>
-        <a href="products.html?type=facades" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="18"/><rect x="13" y="3" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
-          <span>Facades</span>
+        <a href="products.html?style=classic" class="service-tile">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-8h6v8M12 3v4"/></svg>
+          <span>Classic Elevation</span>
         </a>
         <a href="products.html?type=sheds" class="service-tile">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10 12 4l9 6M5 10v10h14V10"/></svg>
-          <span>Sheds &amp; Pergolas</span>
-        </a>
-        <a href="products.html?type=shingles" class="service-tile">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10 12 4l9 6M5 10v10h14V10"/></svg>
-          <span>Shingles</span>
+          <span>Sheds</span>
         </a>
       </div>
     </div>
@@ -175,8 +172,9 @@
       </div>
       <div class="materials-grid">
         <div class="material-chip"><span class="swatch" style="background:#2b2b2b"></span>Cast Iron</div>
+        <div class="material-chip"><span class="swatch" style="background:#726464"></span>Mild Steel</div>
         <div class="material-chip"><span class="swatch" style="background:#c9ccce"></span>Stainless Steel</div>
-        <div class="material-chip"><span class="swatch" style="background:#8a6f4d"></span>Aluminium</div>
+        <div class="material-chip"><span class="swatch" style="background:#726b60"></span>Aluminium</div>
         <div class="material-chip"><span class="swatch" style="background:#b08d57"></span>HPL &amp; WPC Louvers</div>
         <div class="material-chip"><span class="swatch" style="background:#e7e2d8"></span>UPVC (Shed)</div>
         <div class="material-chip"><span class="swatch" style="background:#9f9285"></span>ACP (Aluminium Composite Profile)</div>
@@ -194,16 +192,15 @@
 
       <div class="filter-tabs" role="tablist" aria-label="Filter project preview">
         <button class="filter-btn is-active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="gates">Gates</button>
-        <button class="filter-btn" data-filter="railings">Railings</button>
-        <button class="filter-btn" data-filter="staircases">Staircases</button>
-        <button class="filter-btn" data-filter="facades">Facades</button>
+        <button class="filter-btn" data-filter="modern">Modern</button>
+        <button class="filter-btn" data-filter="classic">Classic</button>
+        <button class="filter-btn" data-filter="sheds">Sheds</button>
       </div>
 
       <div class="teaser-grid" id="teaser-grid"><!-- populated by home.js --></div>
 
       <div class="text-center" style="margin-top:36px;">
-        <a href="products.html" class="btn btn-outline">View All Projects</a>
+        <a href="projects.html" class="btn btn-outline">View All Projects</a>
       </div>
     </div>
   </section>
@@ -229,7 +226,7 @@
         <div class="process-step">
           <span class="step-num">03</span>
           <h4>Fabrication</h4>
-          <p>Built in our workshop with precision tooling and quality checks.</p>
+          <p>Built in our workshop and on site with precision tooling and quality checks.</p>
         </div>
         <div class="process-step">
           <span class="step-num">04</span>
@@ -292,7 +289,7 @@
           </div>
           <div>
             <p class="owner-name">Ritvik Singla</p>
-            <p class="owner-role">Co-Founder</p>
+            <p class="owner-role">B. Tech. and Project Management</p>
           </div>
         </div>
         <div class="owner-card">
@@ -301,7 +298,7 @@
           </div>
           <div>
             <p class="owner-name">Ashwani Singla</p>
-            <p class="owner-role">Co-Founder</p>
+            <p class="owner-role">M. Tech. Civil Engineer</p>
           </div>
         </div>
       </div>
@@ -343,7 +340,7 @@
       <ul>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#materials">Materials</a></li>
-        <li><a href="products.html">Projects</a></li>
+        <li><a href="products.html">Products</a></li>
         <li><a href="index.html#about">About Us</a></li>
       </ul>
     </div>

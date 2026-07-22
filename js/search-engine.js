@@ -139,9 +139,19 @@ function expandQuery(rawQuery){
 }
 
 /* ---------- SCORE A PRODUCT AGAINST AN EXPANDED QUERY ---------- */
+function getProductStyles(product){
+  const rawStyles = Array.isArray(product?.styles)
+    ? product.styles
+    : Array.isArray(product?.style)
+      ? product.style
+      : (product?.style ? [product.style] : []);
+  return rawStyles.map(v => String(v).toLowerCase()).filter(Boolean);
+}
+
 function productSearchText(product){
+  const styles = getProductStyles(product);
   return normalize([
-    product.name, product.type, product.style,
+    product.name, product.type, ...styles,
     ...(product.colors || []), ...(product.tags || [])
   ].join(' '));
 }
@@ -160,7 +170,8 @@ function scoreProduct(product, expanded, rawCleaned){
 
   expanded.canonical.forEach(term => {
     if(text.includes(term)) score += 4;
-    if(product.type === CANONICAL_TO_TYPE[term] || product.style === term) score += 3;
+    const productStyles = getProductStyles(product);
+    if(product.type === CANONICAL_TO_TYPE[term] || productStyles.includes(term)) score += 3;
     if((product.colors || []).includes(term)) score += 3;
   });
 

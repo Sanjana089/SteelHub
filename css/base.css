@@ -248,15 +248,19 @@ input, select, textarea{ font-family: inherit; }
 
 .menu-toggle{
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   margin-left: 8px;
+  color: var(--white);
+  border-radius: 50%;
+  transition: background 0.2s ease;
 }
-.menu-toggle span{ width: 24px; height: 2px; background: var(--white); transition: transform 0.25s ease, opacity 0.25s ease; }
-.menu-toggle.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-.menu-toggle.is-open span:nth-child(2){ opacity: 0; }
-.menu-toggle.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+.menu-toggle:hover{ background: rgba(255,255,255,0.08); }
+.menu-toggle-icon{ transition: transform 0.25s ease; }
+.menu-toggle.is-open .menu-toggle-icon{ transform: rotate(180deg); }
 
 /* ==========================================================
    STICKY CTA FOOTER BAR (Call / WhatsApp / Estimate)
@@ -500,6 +504,16 @@ input, select, textarea{ font-family: inherit; }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 680px){
+  .header-inner{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand{ margin-right: 0; justify-self: start; }
+  .site-logo{ justify-self: end; }
+  .menu-toggle{ justify-self: center; margin-left: 0; }
+
   .main-nav{
     position: fixed;
     top: var(--header-h);
