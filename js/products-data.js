@@ -34,6 +34,15 @@ function cloudinaryUrl(publicId, opts){
   return `https://res.cloudinary.com/${CLOUDINARY.cloudName}/image/upload/${transform}/${publicId}`;
 }
 
+function cloudinaryVideoUrl(publicId, opts){
+  opts = opts || {};
+  const width = opts.width || 1200;
+  const quality = opts.quality || 'auto';
+  const format = opts.format || 'auto';
+  const transform = `f_${format},q_${quality},w_${width}`;
+  return `https://res.cloudinary.com/${CLOUDINARY.cloudName}/video/upload/${transform}/${publicId}`;
+}
+
 // Single placeholder image
 const PLACEHOLDER_IMAGE = 'v1721586155/tech-rev_ybejet';
 
@@ -246,6 +255,51 @@ const PRODUCTS = [
   { id: 74, name: 'CNC Paisley', type: 'gates', style: 'modern', colors: ['black'], tags: ['gate','modern','powdercoat'], pattern: 'gate-modern', image: 'v1783609287/SteelHub/Modern/Gates/13_hvyiw7', images: ['v1783609287/SteelHub/Modern/Gates/13_hvyiw7'] },
   { id: 75, name: 'The Wave', type: 'gates', style: 'modern', colors: ['black'], tags: ['gate','modern','sleek'], pattern: 'gate-modern', image: 'v1783609333/SteelHub/Modern/Gates/12_czpih5', images: ['v1783609333/SteelHub/Modern/Gates/12_czpih5'] },
   { id: 76, name: 'Combed with Copper Accents', type: 'gates', style: 'modern', colors: ['black'], tags: ['gate','modern','statement'], pattern: 'gate-modern', image: 'v1783669156/SteelHub/Modern/Gates/10_jr6l8r', images: ['v1783669156/SteelHub/Modern/Gates/10_jr6l8r'] },
+
+  // Modern Balconies
+  { id: 301, name: 'Balcony 1', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739578/SteelHub/Modern/Balcony/14_m1lqj3' },
+  { id: 302, name: 'Balcony 2', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739582/SteelHub/Modern/Balcony/27_xlnvi7' },
+  { id: 303, name: 'Balcony 3', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739584/SteelHub/Modern/Balcony/21_lrvtum' },
+  { id: 304, name: 'Balcony 4', type: 'balconies', styles: ['modern'], colors: ['black','gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739580/SteelHub/Modern/Balcony/29_af163q' },
+  { id: 305, name: 'Balcony 5', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739577/SteelHub/Modern/Balcony/34_aciqdq' },
+  { id: 306, name: 'Balcony 6', type: 'balconies', styles: ['modern'], colors: ['black','brown'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739573/SteelHub/Modern/Balcony/13_jolpqa' },
+  { id: 307, name: 'Balcony 7', type: 'balconies', styles: ['modern'], colors: ['black','gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739469/SteelHub/Modern/Balcony/10_ryf61o' },
+  { id: 308, name: 'Balcony 8', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739470/SteelHub/Modern/Balcony/15_sltjff' },
+  { id: 309, name: 'Balcony 9', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739468/SteelHub/Modern/Balcony/2_c3r1fk' },
+  { id: 310, name: 'Balcony 10', type: 'balconies', styles: ['modern'], colors: ['black','gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739467/SteelHub/Modern/Balcony/40_mkexcx' },
+  { id: 311, name: 'Balcony 11', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','cnc'], pattern: 'balcony-modern', image: 'v1784739467/SteelHub/Modern/Balcony/3_ezj2bx' },
+  { id: 312, name: 'Balcony 12', type: 'balconies', styles: ['modern'], colors: ['black','silver'], tags: ['balcony','modern','cnc'], pattern: 'balcony-modern', image: 'v1784739466/SteelHub/Modern/Balcony/5_yyscxf' },
+  { id: 313, name: 'Balcony 13', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','cnc'], pattern: 'balcony-modern', image: 'v1784739465/SteelHub/Modern/Balcony/1_nxyndm' },
+  { id: 314, name: 'Balcony 14', type: 'balconies', styles: ['modern'], colors: ['black','gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739462/SteelHub/Modern/Balcony/22_dtdhzo' },
+  { id: 315, name: 'Balcony 15', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739461/SteelHub/Modern/Balcony/18_ck0b0i' },
+  { id: 316, name: 'Balcony 16', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739460/SteelHub/Modern/Balcony/33_mbixyl' },
+  { id: 317, name: 'Balcony 17', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739460/SteelHub/Modern/Balcony/30_perghb' },
+  { id: 318, name: 'Balcony 18', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','glass'], pattern: 'balcony-modern', image: 'v1784739458/SteelHub/Modern/Balcony/35_pkycxu' },
+  { id: 319, name: 'Balcony 19', type: 'balconies', styles: ['modern'], colors: ['black','brown'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739457/SteelHub/Modern/Balcony/23_ew3k0n' },
+  { id: 320, name: 'Balcony 20', type: 'balconies', styles: ['modern'], colors: ['black'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739456/SteelHub/Modern/Balcony/31_wjwaqh' },
+  { id: 321, name: 'Balcony 21', type: 'balconies', styles: ['modern'], colors: ['black','gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739455/SteelHub/Modern/Balcony/32_bpjhjn' },
+  { id: 322, name: 'Balcony 22', type: 'balconies', styles: ['modern'], colors: ['black','bronze'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739455/SteelHub/Modern/Balcony/28_jixx2g' },
+  { id: 323, name: 'Balcony 23', type: 'balconies', styles: ['modern'], colors: ['gold'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739454/SteelHub/Modern/Balcony/20_pz4fzz' },
+  { id: 324, name: 'Balcony 24', type: 'balconies', styles: ['modern'], colors: ['black','brown'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739454/SteelHub/Modern/Balcony/26_ovw6ks' },
+  { id: 325, name: 'Balcony 25', type: 'balconies', styles: ['modern'], colors: ['black','brown'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739454/SteelHub/Modern/Balcony/19_l6npq7' },
+  { id: 326, name: 'Balcony 26', type: 'balconies', styles: ['modern'], colors: ['gold','bronze'], tags: ['balcony','modern','slat'], pattern: 'balcony-modern', image: 'v1784739453/SteelHub/Modern/Balcony/24_qf1gc5' },
+
+  // Classic Balconies
+
+  { id: 351, name: 'Balcony 27', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739154/SteelHub/Classic/Balcony/38_h8lb24' },
+  { id: 352, name: 'Balcony 28', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739154/SteelHub/Classic/Balcony/16_ufajrq' },
+  { id: 353, name: 'Balcony 29', type: 'balconies', styles: ['classic'], colors: ['grey'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739154/SteelHub/Classic/Balcony/37_hkuors' },
+  { id: 354, name: 'Balcony 30', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic ', image: 'v1784739154/SteelHub/Classic/Balcony/7_zd6l5a' },
+  { id: 355, name: 'Balcony 31', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739151/SteelHub/Classic/Balcony/17_htaqjo' },
+  { id: 356, name: 'Balcony 32', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739151/SteelHub/Classic/Balcony/6_pk476e' },
+  { id: 357, name: 'Balcony 33', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739150/SteelHub/Classic/Balcony/8_fp59ro' },
+  { id: 358, name: 'Balcony 34', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739150/SteelHub/Classic/Balcony/39_savkbn' },
+  { id: 359, name: 'Balcony 35', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739150/SteelHub/Classic/Balcony/11_hj44nb' },
+  { id: 360, name: 'Balcony 36', type: 'balconies', styles: ['classic'], colors: ['black', 'gold'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739149/SteelHub/Classic/Balcony/36_f8pkce' },
+  { id: 361, name: 'Balcony 37', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739148/SteelHub/Classic/Balcony/9_qk2ixq' },
+  { id: 362, name: 'Balcony 38', type: 'balconies', styles: ['classic'], colors: ['black'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739148/SteelHub/Classic/Balcony/25_j3r4hg' },
+  { id: 363, name: 'Balcony 39', type: 'balconies', styles: ['classic'], colors: ['silver'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739148/SteelHub/Classic/Balcony/12_chkbvf' },
+  { id: 364, name: 'Balcony 40', type: 'balconies', styles: ['classic'], colors: ['black', 'gold'], tags: ['balcony','classic','slat'], pattern: 'balcony-classic', image: 'v1784739147/SteelHub/Classic/Balcony/4_qunetv' },
 ];
 
 const COLOR_HEX = {
