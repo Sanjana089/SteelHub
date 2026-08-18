@@ -353,7 +353,6 @@
   padding: 14px;
   font-weight: 700;
   font-size: 0.85rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
   width: 100%;
 }
 .teaser-card::before{
@@ -545,7 +544,7 @@
 .teaser-card__media {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 100%;
   overflow: hidden;
   background: #1a1a1a;
 }
@@ -563,6 +562,15 @@
   display: block;
 }
 
+.teaser-card__video {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.teaser-card__video--loading {
+  opacity: 0;
+}
+
 .teaser-card__placeholder {
   display: grid;
   place-items: center;
@@ -574,7 +582,7 @@
 .teaser-card__dots {
   position: absolute;
   left: 50%;
-  bottom: 22px;
+  bottom: 32px;
   transform: translateX(-50%);
   display: flex;
   gap: 6px;
@@ -597,9 +605,9 @@
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 14px;
+  bottom: 34px;
   z-index: 2;
-  font-size: 0.92rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
