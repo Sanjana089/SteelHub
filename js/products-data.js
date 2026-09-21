@@ -113,6 +113,8 @@ const PRODUCTS = [
   { id: 143, name: 'Classic Thapa Plain Arc', type: 'gates', style: 'classic', colors: ['black','bronze'], tags: ['gate','classic','thapa'], pattern: 'gate-classic', image: 'v1783701552/SteelHub/Classic/Gates/3_r9qw2r' },
   { id: 144, name: 'Checkered Plain Gate', type: 'gates', style: 'classic', colors: ['black','gold'], tags: ['gate','classic','rustic'], pattern: 'gate-classic', image: 'v1783703035/SteelHub/Classic/Gates/17.2_fcwj5z' },
 
+
+  // Modern Railings
   { id: 145, name: 'UV Railing', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783789908/SteelHub/Modern/Railings/1_muglni' },
   { id: 146, name: 'Double Stakes Railing', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783789908/SteelHub/Modern/Railings/2_irbayn' },
   { id: 147, name: 'Floating Box', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783789909/SteelHub/Modern/Railings/3_cdon3j' },
@@ -154,8 +156,22 @@ const PRODUCTS = [
   { id: 183, name: 'Modern Railing 40', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783790176/SteelHub/Modern/Railings/40_rgp5c8' },
   { id: 184, name: 'Modern Railing 41', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783790177/SteelHub/Modern/Railings/41_jcwp9g' },
   { id: 185, name: 'Modern Railing 42', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783790183/SteelHub/Modern/Railings/42_rh5p57' },
-  { id: 186, name: 'Modern Railing 42', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783790119/SteelHub/Modern/Railings/20_ha7tbf' },
+  { id: 186, name: 'Modern Railing 43', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1783790119/SteelHub/Modern/Railings/20_ha7tbf' },
 
+  
+  { id: 217, name: 'Modern Railing 44', type: 'railings', style: 'modern', colors: ['silver'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734651/SteelHub/Modern/Railings/2_hycot4.jpg' },
+  { id: 218, name: 'Modern Railing 45', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734692/SteelHub/Modern/Railings/8_sdypiz.png' },
+  { id: 219, name: 'Modern Railing 46', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734720/SteelHub/Modern/Railings/9_tcsiqo.png' },
+  { id: 220, name: 'Modern Railing 47', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734721/SteelHub/Modern/Railings/10_kfdkye.png' },
+  { id: 221, name: 'Modern Railing 48', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734691/SteelHub/Modern/Railings/6_vjbebe.png' },
+  { id: 222, name: 'Modern Railing 49', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734691/SteelHub/Modern/Railings/7_oesmmv.png' },
+  { id: 223, name: 'Modern Railing 50', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734666/SteelHub/Modern/Railings/5_koko8m.jpg' },
+  { id: 224, name: 'Modern Railing 51', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734597/SteelHub/Modern/Railings/1_kfbjvc.jpg' },
+  { id: 225, name: 'Modern Railing 52', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734665/SteelHub/Modern/Railings/4_nktw1h.jpg' },
+  { id: 226, name: 'Modern Railing 53', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734652/SteelHub/Modern/Railings/3_mmmxlx.jpg' },
+  { id: 227, name: 'Modern Railing 54', type: 'railings', style: 'modern', colors: ['black'], tags: ['railing','modern'], pattern: 'rail-modern', image: 'v1789734597/SteelHub/Modern/Railings/11_dnku2t.png' },
+
+  // Classic Railings
   { id: 187, name: 'Classic Railing 37', type: 'railings', style: 'classic', colors: ['black','bronze'], tags: ['railing','classic'], pattern: 'rail-classic', image: 'v1783789883/SteelHub/Classic/Railings/37_mzxayf' },
   { id: 188, name: 'Classic Railing 36', type: 'railings', style: 'classic', colors: ['black','bronze'], tags: ['railing','classic'], pattern: 'rail-classic', image: 'v1783789883/SteelHub/Classic/Railings/36_zxt4mn' },
   { id: 189, name: 'Classic Railing 33', type: 'railings', style: 'classic', colors: ['black','bronze'], tags: ['railing','classic'], pattern: 'rail-classic', image: 'v1783789883/SteelHub/Classic/Railings/33_eghchn' },
@@ -189,11 +205,12 @@ const PRODUCTS = [
   { id: 215, name: 'Staircase 11', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/8_jdyejx' },
   { id: 216, name: 'Staircase 12', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/4_zykdsn' },
 
-  { id: 12, name: 'Natural Stone Facade Cladding', type: 'facades', style: 'classic', colors: ['bronze','white'], tags: ['facade','stone','cladding','elevation'], pattern: 'facade-classic', image: PLACEHOLDER_IMAGE },
-  { id: 13, name: 'HPL Panel Facade', type: 'facades', style: 'modern', colors: ['black','silver'], tags: ['facade','hpl','cladding','elevation'], pattern: 'facade-modern', image: PLACEHOLDER_IMAGE },
-  { id: 14, name: 'UPVC Louver Screen Facade', type: 'facades', style: 'modern', colors: ['white','silver'], tags: ['facade','upvc','louver','elevation'], pattern: 'facade-modern', image: PLACEHOLDER_IMAGE },
-  { id: 15, name: 'Textured Stone Entrance Wall', type: 'facades', style: 'classic', colors: ['bronze'], tags: ['facade','stone','entrance','elevation'], pattern: 'facade-classic', image: PLACEHOLDER_IMAGE },
-  { id: 15, name: 'Rafters', type: 'rafters', style: 'classic', colors: ['bronze'], tags: ['facade','stone','entrance','elevation'], pattern: 'facade-classic', image: PLACEHOLDER_IMAGE },
+  { id: 13, name: 'ACP Louvers Facade', type: 'facades', style: 'modern', colors: ['brown'], tags: ['facade','acp','cladding','elevation'], pattern: 'facade-modern', image: 'v1789734277/SteelHub/Modern/Facades/ACP1_pqcogy.jpg' },
+  { id: 14, name: 'ACP Facade', type: 'facades', style: 'modern', colors: ['black'], tags: ['facade','ACP','louver','elevation'], pattern: 'facade-modern', image: 'v1789734388/SteelHub/Modern/Facades/ACP2_wgsrlx.jpg' },
+  { id: 16, name: 'Rafter Pergola', type: 'rafters', style: 'modern', colors: ['brown'], tags: ['gate','modern','slat'], pattern: 'gate-modern', image: 'v1787125694/SteelHub/Shed/27_njiijo'},
+  { id: 17, name: 'Rafter 1', type: 'rafters', style: 'modern', colors: ['brown', 'black', 'dark-brown'], tags: ['rafter','modern','slat'], pattern: 'rafter-modern', image: 'v1789997945/SteelHub/Modern/Rafters/Rafter_2_l6e3qx.jpg'},
+  { id: 18, name: 'Rafter 2', type: 'rafters', style: 'modern', colors: ['brown', 'black', 'dark-brown', 'peach', 'black', 'dark-grey'], tags: ['rafter','modern','slat'], pattern: 'rafter-modern', image: 'v1789998192/SteelHub/Modern/Rafters/R4.png'},
+  { id: 18, name: 'Rafter 3', type: 'rafters', style: 'modern', colors: ['black'], tags: ['rafter','modern','slat'], pattern: 'rafter-modern', image: 'v1789997940/SteelHub/Modern/Rafters/Rafter4_agp0iu.jpg'},
 
   { id: 19, name: 'The Wave', type: 'gates', style: 'modern', colors: ['black'], tags: ['gate','modern','slat'], pattern: 'gate-modern', image: 'v1783609333/SteelHub/Modern/Gates/9_xnax3k', images: ['v1783609333/SteelHub/Modern/Gates/9_xnax3k'] },
   { id: 20, name: 'Star CNC', type: 'gates', style: 'modern', colors: ['black'], tags: ['gate','modern','privacy'], pattern: 'gate-modern', image: 'v1783609331/SteelHub/Modern/Gates/8_hcjw54', images: ['v1783609331/SteelHub/Modern/Gates/8_hcjw54'] },
@@ -303,12 +320,11 @@ const PRODUCTS = [
   { id: 401, name: 'Pergola 1', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125744/SteelHub/Shed/1_ueamh3' },
   { id: 402, name: 'Pergola 2', type: 'sheds', styles: ['modern', 'classic'], colors: ['black', 'brown'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125747/SteelHub/Shed/2_lpoqqb' },
   { id: 403, name: 'Pergola 3', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125751/SteelHub/Shed/3_vh1bvj' },
-  { id: 404, name: 'Rafter 1', type: 'rafters', styles: ['modern', 'classic'], colors: ['black'], tags: ['rafter','modern'], pattern: 'rafter-modern', image: 'v1787125751/SteelHub/Shed/4_n9ng5h' },
+  { id: 404, name: 'Rafter 5', type: 'rafters', styles: ['modern'], colors: ['brown'], tags: ['rafter','modern'], pattern: 'rafter-modern', image: 'v1787125751/SteelHub/Shed/4_n9ng5h' },
   { id: 405, name: 'Pergola 4', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125670/SteelHub/Shed/5_fr5sco' },
   { id: 406, name: 'Pergola 5', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125670/SteelHub/Shed/6_rd15cu' },
   { id: 407, name: 'Shingles Canopy 1', type: 'shingles', styles: ['classic'], colors: ['red'], tags: ['gazwbo','classic','shingles'], pattern: 'shingles classic', images: ['v1787125675/SteelHub/Shed/7_fdq2ov', 'v1787125722/SteelHub/Shed/43_o7s23w'] },
   { id: 408, name: 'Pergola 6', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125671/SteelHub/Shed/8_au4frv' },
-  { id: 409, name: 'Shingles 4', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125675/SteelHub/Shed/9_y7vwjp' },
   { id: 410, name: 'Pergola 7', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125679/SteelHub/Shed/10_auraem' },
   { id: 411, name: 'Pergola 8', type: 'sheds', styles: ['modern', 'classic'], colors: ['black', 'white'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', images: ['v1787125760/SteelHub/Shed/11_w3mg4v', 'v1787125763/SteelHub/Shed/13_kyc5hp'] },
   { id: 412, name: 'Pergola 9', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125679/SteelHub/Shed/12_ke4fpw' },
@@ -344,10 +360,9 @@ const PRODUCTS = [
   { id: 438, name: 'Pergola 38', type: 'sheds', styles: ['modern', 'classic'], colors: ['brown'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125720/SteelHub/Shed/38_ajlayd' },
   { id: 439, name: 'Pergola 39', type: 'sheds', styles: ['modern', 'classic'], colors: ['brown'], tags: ['shed','modern','pergola'], pattern: 'shed-modern', image: 'v1787125727/SteelHub/Shed/39_e7yiwn' },
   { id: 444, name: 'Shingles 2', type: 'shingles', styles: ['classic'], colors: ['grey'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125733/SteelHub/Shed/44_jbd5tr' },
-  { id: 445, name: 'Shingles 3', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125734/SteelHub/Shed/45_caxvat' },
+  { id: 445, name: 'Shingles 3', type: 'shingles', styles: ['classic'], colors: ['black', 'red'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', images: ['v1787125734/SteelHub/Shed/45_caxvat', 'v1787203861/SteelHub/Shed/shed_u3anry.png'] },
   { id: 448, name: 'Terracota Jaal', type: 'terracota', styles: ['modern', 'classic'], colors: ['terracota'], tags: ['ceiling','modern','jaal'], pattern: 'shed-modern', image: 'v1787125740/SteelHub/Shed/48_geudjb' },
   { id: 448, name: 'Terracota Jaal 2', type: 'terracota', styles: ['modern', 'classic'], colors: ['terracota'], tags: ['ceiling','modern','jaal'], pattern: 'shed-modern', image: 'v1787204012/SteelHub/Shed/9_snb2gn.jpg' },
-  { id: 450, name: 'Shingles 5', type: 'shingles', styles: ['classic'], colors: ['red'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787203861/SteelHub/Shed/shed_u3anry.png' },
 
   { id: 451, name: 'Jaal 3', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204012/SteelHub/Shed/1_duivd5.jpg' },
   { id: 452, name: 'Jaal 4', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204011/SteelHub/Shed/2_dzk1kz.jpg' },
@@ -357,6 +372,43 @@ const PRODUCTS = [
   { id: 456, name: 'Jaal 8', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204011/SteelHub/Shed/5_oxldov.jpg' },
   { id: 457, name: 'Jaal 9', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204010/SteelHub/Shed/6_fxtsaf.jpg' },
   { id: 458, name: 'Jaal 10', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204011/SteelHub/Shed/7_pqofqs.jpg' },
+
+  { id: 409, name: 'Shingles 4', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125675/SteelHub/Shed/9_y7vwjp' },
+  { id: 459, name: 'Shingles 5', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1786089565/SteelHub/Classic/Rooftop/c4_ha1y2i.jpg' },
+  { id: 460, name: 'Shingles 6', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790012146/SteelHub/Classic/Rooftop/3_inej1b.png' },
+
+  // Cast Iron Degis
+  { id: 501, name: 'Balcony 1', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/34_gn0xsk.jpg'},
+  { id: 502, name: 'Balcony 2', type: 'cast-iron-degi', styles: ['classic'], colors: ['silver'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/33_fhumi9.jpg'},
+  { id: 503, name: 'Balcony 3', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010705/SteelHub/Classic/Degi/32_gfo79g.jpg'},
+  { id: 504, name: 'Balcony 4', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010705/SteelHub/Classic/Degi/30_tozesa.jpg'},
+  { id: 505, name: 'Balcony 5', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010705/SteelHub/Classic/Degi/31_olds40.jpg'},
+  { id: 506, name: 'Balcony 6', type: 'cast-iron-degi', styles: ['classic'], colors: ['silver'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010705/SteelHub/Classic/Degi/28_bp4ymr.jpg'},
+  { id: 507, name: 'Balcony 7', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010785/SteelHub/Classic/Degi/27_cugvrk.jpg'},
+  { id: 508, name: 'Balcony 8', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010784/SteelHub/Classic/Degi/26_f8oiuk.jpg'},
+  { id: 509, name: 'Balcony 9', type: 'cast-iron-degi', styles: ['classic'], colors: ['grey'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010784/SteelHub/Classic/Degi/25_j1wldo.jpg'},
+  { id: 510, name: 'Balcony 10', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010783/SteelHub/Classic/Degi/24_jbp0gf.jpg'},
+  { id: 511, name: 'Balcony 11', type: 'cast-iron-degi', styles: ['classic'], colors: ['white'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010776/SteelHub/Classic/Degi/23_b9zieq.jpg'},
+  { id: 512, name: 'Balcony 12', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010771/SteelHub/Classic/Degi/22_wiogts.jpg'},
+  { id: 513, name: 'Balcony 13', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010771/SteelHub/Classic/Degi/21_cddqbm.jpg'},
+
+  { id: 531, name: 'Railing 1', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010770/SteelHub/Classic/Degi/11_odvwhh.jpg'},
+  { id: 532, name: 'Railing 2', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010770/SteelHub/Classic/Degi/10_h172t1.jpg'},
+  { id: 533, name: 'Railing 3', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010739/SteelHub/Classic/Degi/9_gj6a4l.jpg'},
+  { id: 534, name: 'Railing 4', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010731/SteelHub/Classic/Degi/8_bhexcl.jpg'},
+  { id: 535, name: 'Railing 5', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010730/SteelHub/Classic/Degi/7_z1id13.jpg'},
+  { id: 536, name: 'Railing 6', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010727/SteelHub/Classic/Degi/6_wwirpd.jpg'},
+  { id: 537, name: 'Railing 7', type: 'cast-iron-degi', styles: ['classic'], colors: ['gold'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010725/SteelHub/Classic/Degi/5_lykd2l.jpg'},
+  { id: 538, name: 'Railing 8', type: 'cast-iron-degi', styles: ['classic'], colors: ['gold'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010722/SteelHub/Classic/Degi/4_kxmydo.jpg'},
+  { id: 539, name: 'Railing 9', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010721/SteelHub/Classic/Degi/3_i9p2zd.jpg'},
+  { id: 540, name: 'Railing 10', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010718/SteelHub/Classic/Degi/2_sifgni.jpg'},
+  { id: 541, name: 'Railing 11', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010714/SteelHub/Classic/Degi/1_xm5sbk.jpg'},
+
+  { id: 561, name: 'Gate 1', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010713/SteelHub/Classic/Degi/55_ib890j.jpg'},
+  { id: 562, name: 'Gate 2', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010712/SteelHub/Classic/Degi/54_twzins.jpg'},
+  { id: 563, name: 'Gate 3', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010711/SteelHub/Classic/Degi/53_dxlmtz.jpg'},
+  { id: 564, name: 'Gate 4', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/52_p3yi7g.jpg'},
+  { id: 565, name: 'Gate 5', type: 'cast-iron-degi', styles: ['classic'], colors: ['grey'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/51_lueqwg.jpg'},
 ];
 
 const COLOR_HEX = {
@@ -371,6 +423,9 @@ const COLOR_HEX = {
   copper: '#b87333',
   red: '#b22222',
   terracota: '#e2725b',
+  'dark-brown': '#654321',
+  peach: '#face7d',
+  'dark-grey': '#778d9a',
 };
 
 function getColorHex(color){
@@ -381,8 +436,11 @@ function getColorHex(color){
 
 const TYPE_LABELS = {
   gates: 'Gates',
+  rafters: 'Rafters',
   railings: 'Railings',
   staircases: 'Staircases',
   facades: 'Facades',
   sheds: 'Sheds & Canopies',
+  shingles: 'Shingles',
+  'cast-iron-degi': 'Degi'
 };
