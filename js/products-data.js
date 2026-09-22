@@ -192,18 +192,14 @@ const PRODUCTS = [
   { id: 204, name: 'Classic Railing 3', type: 'railings', style: 'classic', colors: ['black','bronze'], tags: ['railing','classic'], pattern: 'rail-classic', image: 'v1783789875/SteelHub/Classic/Railings/3_u2occu' },
 
   /** Staircases */
-  { id: 205, name: 'Staircase 1', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305912/SteelHub/staircase/12_rwdm1a' },
-  { id: 206, name: 'Staircase 2', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/6_po5aou' },
-  { id: 207, name: 'Staircase 3', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/11_fceamj' },
-  { id: 208, name: 'Staircase 4', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/7_m1e5cz' },
-  { id: 209, name: 'Staircase 5', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/10_pynwoy' },
-  { id: 210, name: 'Staircase 6', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/5_qqvvgg' },
-  { id: 211, name: 'Staircase 7', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/2_zzrnpw' },
-  { id: 212, name: 'Staircase 8', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/3_cogyzn' },
-  { id: 213, name: 'Staircase 9', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/1_b2bgfv' },
-  { id: 214, name: 'Staircase 10', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/9_ea8qdt' },
-  { id: 215, name: 'Staircase 11', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/8_jdyejx' },
-  { id: 216, name: 'Staircase 12', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/4_zykdsn' },
+  { id: 205, name: 'Staircase 1', type: 'staircases', styles: ['modern','classic'], colors: ['black','bronze'], tags: ['staircase','spiral'], pattern: 'stair-classic', images: ['v1784305912/SteelHub/staircase/12_rwdm1a', 'v1784305911/SteelHub/staircase/11_fceamj', 'v1784305911/SteelHub/staircase/10_pynwoy', 'v1784305910/SteelHub/staircase/9_ea8qdt', 'v1784305910/SteelHub/staircase/8_jdyejx'] },
+  { id: 206, name: 'Staircase 2', type: 'staircases', styles: ['modern','classic'], colors: ['white'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/6_po5aou' },
+  { id: 208, name: 'Staircase 3', type: 'staircases', styles: ['modern','classic'], colors: ['silver'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/7_m1e5cz' },
+  { id: 210, name: 'Staircase 4', type: 'staircases', styles: ['modern','classic'], colors: ['black'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305911/SteelHub/staircase/5_qqvvgg' },
+  { id: 211, name: 'Staircase 5', type: 'staircases', styles: ['modern','classic'], colors: ['black'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/2_zzrnpw' },
+  { id: 212, name: 'Staircase 6', type: 'staircases', styles: ['modern','classic'], colors: ['black'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/3_cogyzn' },
+  { id: 213, name: 'Staircase 7', type: 'staircases', styles: ['modern','classic'], colors: ['black'], tags: ['staircase','straight'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/1_b2bgfv' },
+  { id: 216, name: 'Staircase 8', type: 'staircases', styles: ['modern','classic'], colors: ['red'], tags: ['staircase','spiral'], pattern: 'stair-classic', image: 'v1784305910/SteelHub/staircase/4_zykdsn' },
 
   { id: 13, name: 'ACP Louvers Facade', type: 'facades', style: 'modern', colors: ['brown'], tags: ['facade','acp','cladding','elevation'], pattern: 'facade-modern', image: 'v1789734277/SteelHub/Modern/Facades/ACP1_pqcogy.jpg' },
   { id: 14, name: 'ACP Facade', type: 'facades', style: 'modern', colors: ['black'], tags: ['facade','ACP','louver','elevation'], pattern: 'facade-modern', image: 'v1789734388/SteelHub/Modern/Facades/ACP2_wgsrlx.jpg' },
@@ -363,6 +359,8 @@ const PRODUCTS = [
   { id: 445, name: 'Shingles 3', type: 'shingles', styles: ['classic'], colors: ['black', 'red'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', images: ['v1787125734/SteelHub/Shed/45_caxvat', 'v1787203861/SteelHub/Shed/shed_u3anry.png'] },
   { id: 448, name: 'Terracota Jaal', type: 'terracota', styles: ['modern', 'classic'], colors: ['terracota'], tags: ['ceiling','modern','jaal'], pattern: 'shed-modern', image: 'v1787125740/SteelHub/Shed/48_geudjb' },
   { id: 448, name: 'Terracota Jaal 2', type: 'terracota', styles: ['modern', 'classic'], colors: ['terracota'], tags: ['ceiling','modern','jaal'], pattern: 'shed-modern', image: 'v1787204012/SteelHub/Shed/9_snb2gn.jpg' },
+  { id: 449, name: 'Terracota Facade 1', type: 'terracota', styles: ['modern'], colors: ['terracota'], tags: ['elevation','modern','facades'], pattern: 'elevation-modern', image: '/v1790097128/SteelHub/Modern/Facades/8_evy5zm.jpg' },
+  { id: 450, name: 'Terracota Facade 2', type: 'terracota', styles: ['modern'], colors: ['terracota'], tags: ['elevation','modern','facades'], pattern: 'elevation-modern', image: '/v1790097128/SteelHub/Modern/Facades/9_fgsmea.jpg' },
 
   { id: 451, name: 'Jaal 3', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204012/SteelHub/Shed/1_duivd5.jpg' },
   { id: 452, name: 'Jaal 4', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204011/SteelHub/Shed/2_dzk1kz.jpg' },
@@ -373,10 +371,15 @@ const PRODUCTS = [
   { id: 457, name: 'Jaal 9', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204010/SteelHub/Shed/6_fxtsaf.jpg' },
   { id: 458, name: 'Jaal 10', type: 'sheds', styles: ['modern', 'classic'], colors: ['black'], tags: ['shed','modern','jaal'], pattern: 'shed-modern', image: 'v1787204011/SteelHub/Shed/7_pqofqs.jpg' },
 
-  { id: 409, name: 'Shingles 4', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125675/SteelHub/Shed/9_y7vwjp' },
+  { id: 409, name: 'Shingles 4', type: 'shingles', styles: ['classic'], colors: ['dark-brown'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1787125675/SteelHub/Shed/9_y7vwjp' },
   { id: 459, name: 'Shingles 5', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1786089565/SteelHub/Classic/Rooftop/c4_ha1y2i.jpg' },
   { id: 460, name: 'Shingles 6', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790012146/SteelHub/Classic/Rooftop/3_inej1b.png' },
 
+  { id: 461, name: 'Shingles 7', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790013208/SteelHub/Classic/Rooftop/Shingles1_jjoyob.jpg' },
+  { id: 462, name: 'Shingles 8', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790013208/SteelHub/Classic/Rooftop/Shingles2_jjlouh.jpg' },
+  { id: 463, name: 'Shingles 9', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790013207/SteelHub/Classic/Rooftop/Shingles3_hz0rxh.jpg' },
+  { id: 464, name: 'Shingles 10', type: 'shingles', styles: ['classic'], colors: ['black'], tags: ['shingles','classic','canopy'], pattern: 'shingles-classic', image: 'v1790013208/SteelHub/Classic/Rooftop/Shingles4_m3mdfe.jpg' },
+ 
   // Cast Iron Degis
   { id: 501, name: 'Balcony 1', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/34_gn0xsk.jpg'},
   { id: 502, name: 'Balcony 2', type: 'cast-iron-degi', styles: ['classic'], colors: ['silver'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/33_fhumi9.jpg'},
@@ -409,6 +412,21 @@ const PRODUCTS = [
   { id: 563, name: 'Gate 3', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010711/SteelHub/Classic/Degi/53_dxlmtz.jpg'},
   { id: 564, name: 'Gate 4', type: 'cast-iron-degi', styles: ['classic'], colors: ['black'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/52_p3yi7g.jpg'},
   { id: 565, name: 'Gate 5', type: 'cast-iron-degi', styles: ['classic'], colors: ['grey'], tags: ['degi','classic','slat'], pattern: 'degi-classic', image: 'v1790010706/SteelHub/Classic/Degi/51_lueqwg.jpg'},
+
+  // Facades
+  { id:601, name: 'ACP Louvers 1', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093917/SteelHub/Modern/Facades/4_uffqnv.jpg'},
+  { id:602, name: 'ACP Louvers 2', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093917/SteelHub/Modern/Facades/5_clnxd1.jpg'},
+  { id:603, name: 'ACP Louvers 3', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093917/SteelHub/Modern/Facades/3_ypilnx.jpg'},
+  { id:604, name: 'ACP Louvers 4', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093916/SteelHub/Modern/Facades/1_qae0ew.jpg'},
+  { id:605, name: 'ACP Louvers 5', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093916/SteelHub/Modern/Facades/6_s2s3sz.jpg'},
+  { id:606, name: 'ACP Louvers 6', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093916/SteelHub/Modern/Facades/2_ibmu2j.jpg'},
+  { id:607, name: 'ACP Louvers 7', type: 'facades', styles: ['modern'], colors: ['brown'], tags: ['facade','modern','acp'], pattern: 'facade-modern', image: 'v1790093916/SteelHub/Modern/Facades/7_bziikh.jpg'},
+  { id:608, name: 'Terracota Facade 1', type: 'facades', styles: ['modern'], colors: ['terracota'], tags: ['elevation','modern','facades'], pattern: 'facade-modern', image: '/v1790097128/SteelHub/Modern/Facades/8_evy5zm.jpg' },
+  { id:609, name: 'Terracota Facade 2', type: 'facades', styles: ['modern'], colors: ['terracota'], tags: ['elevation','modern','facades'], pattern: 'facade-modern', image: '/v1790097128/SteelHub/Modern/Facades/9_fgsmea.jpg' },
+  { id:610, name: 'CNC Facade 1', type: 'facades', styles: ['modern'], colors: ['silver'], tags: ['elevation','modern','facades', 'cnc'], pattern: 'facade-modern', image: 'v1790097401/SteelHub/Modern/Facades/10_hfupf3.png' },
+  { id:611, name: 'CNC Facade 2', type: 'facades', styles: ['modern'], colors: ['silver'], tags: ['elevation','modern','facades', 'cnc'], pattern: 'facade-modern', image: 'v1790097400/SteelHub/Modern/Facades/11_qswcx2.jpg' },
+  { id:612, name: 'Metal Facade 3', type: 'facades', styles: ['modern'], colors: ['silver', 'black'], tags: ['elevation','modern','facades'], pattern: 'facade-modern', image: 'v1790097958/SteelHub/Modern/Facades/facade_dwvwsx.png' },
+
 ];
 
 const COLOR_HEX = {
@@ -438,9 +456,11 @@ const TYPE_LABELS = {
   gates: 'Gates',
   rafters: 'Rafters',
   railings: 'Railings',
+  balconies: 'Railings',
   staircases: 'Staircases',
   facades: 'Facades',
   sheds: 'Sheds & Canopies',
+  terracota: 'Terracota',
   shingles: 'Shingles',
   'cast-iron-degi': 'Degi'
 };
