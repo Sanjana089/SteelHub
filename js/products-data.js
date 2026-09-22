@@ -453,14 +453,14 @@ function getColorHex(color){
 }
 
 const TYPE_LABELS = {
+  balconies: 'Balconies',
+  'cast-iron-degi': 'Degi',
+  facades: 'Facades',
   gates: 'Gates',
   rafters: 'Rafters',
   railings: 'Railings',
-  balconies: 'Railings',
-  staircases: 'Staircases',
-  facades: 'Facades',
   sheds: 'Sheds & Canopies',
-  terracota: 'Terracota',
   shingles: 'Shingles',
-  'cast-iron-degi': 'Degi'
+  staircases: 'Staircases',
+  terracota: 'Terracota',
 };

@@ -46,7 +46,7 @@
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 24px 24px 66px 24px;
 }
 .filters-head{
   display: flex;

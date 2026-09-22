@@ -290,6 +290,7 @@ input, select, textarea{ font-family: inherit; }
 .cta-bar-item:hover{ background: var(--yellow-dark); }
 .cta-bar-item:active{ background: var(--black); color: var(--yellow); }
 .cta-bar-item svg{ flex-shrink: 0; }
+.cta-bar-item .label-mobile{ display: none; }
 
 @media (max-width: 640px){
   .cta-bar-item span{ display: none; }
