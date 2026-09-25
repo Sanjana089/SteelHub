@@ -289,9 +289,7 @@ function renderProducts(){
         <span class="product-type">${TYPE_LABELS[p.type]}</span>
         <h3 class="product-name">${p.name}</h3>
         <div class="product-colors">${p.colors.map(c=>`<span style="background:${getColorHex(c)}"></span>`).join('')}</div>
-        <div class="product-actions">
-          <button class="btn btn-outline btn-sm btn-block" data-open-modal="estimate-modal">Enquire</button>
-        </div>
+
       </div>
     `;
     grid.appendChild(card);
