@@ -154,19 +154,15 @@ const TEASER_ITEMS = [
         return url;
       }
 
-      // Avoid adding the transformation twice.
-      if (
-        path.includes('/f_mp4/') ||
-        path.includes('/vc_h264/') ||
-        path.includes('/ac_aac/')
-      ) {
+      const alreadyTransformed = /\/video\/upload\/.*(?:f_|q_|vc_|ac_|br_|w_)/i.test(path);
+      if (alreadyTransformed) {
         return url;
       }
 
-      // Add Cloudinary transformations immediately after /video/upload/
+      // Keep autoplay smooth without overspending on bandwidth.
       parsed.pathname = path.replace(
         '/video/upload/',
-        '/video/upload/f_mp4,vc_h264,ac_aac/'
+        '/video/upload/f_mp4,vc_h264,ac_aac,q_auto:good,br_600k,w_800/'
       );
 
       return parsed.toString();
@@ -178,7 +174,7 @@ const TEASER_ITEMS = [
   }
 
 
-  function renderMediaMarkup(entry, title) {
+  function renderMediaMarkup(entry, title, posterImage = '') {
     if (!entry) {
       return `<div class="teaser-card__placeholder">No media</div>`;
     }
@@ -192,10 +188,12 @@ const TEASER_ITEMS = [
         autoplay
         playsinline
         loop
-        preload="auto"
+        preload="metadata"
+        poster="${posterImage || ''}"
         class="teaser-card__video teaser-card__video--loading"
+        data-src="${videoUrl}"
       >
-        <source src="${videoUrl}" type="video/mp4">
+        <source type="video/mp4">
       </video>
     `;
     }
@@ -206,9 +204,45 @@ const TEASER_ITEMS = [
   function setupCardVideo(video) {
     if (!video) return;
 
+    const source = video.querySelector('source');
+    const videoSrc = video.dataset.src || source?.dataset?.src || '';
+
+    if (!videoSrc) return;
+
+    const loadVideo = () => {
+      if (!source) return;
+
+      const currentSrc = source.getAttribute('src') || '';
+      if (currentSrc !== videoSrc) {
+        source.setAttribute('src', videoSrc);
+      }
+
+      source.setAttribute('type', 'video/mp4');
+      video.load();
+
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    };
+
     const showVideo = () => {
       video.classList.remove('teaser-card__video--loading');
     };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const isVisible = entries.some(entry => entry.isIntersecting);
+        if (!isVisible) return;
+
+        loadVideo();
+        observer.disconnect();
+      }, { rootMargin: '200px' });
+
+      observer.observe(video);
+    } else {
+      loadVideo();
+    }
 
     /*
      * Don't show anything while the video is loading.
@@ -448,6 +482,7 @@ const TEASER_ITEMS = [
           if (!mediaWrap) return;
 
           const entry = media[currentIndex] || media[0];
+          const posterImage = media.find(itemMedia => itemMedia?.type === 'image')?.src || '';
           const dotsMarkup = media.length > 1
             ? `<div class="teaser-card__dots" aria-label="Media carousel">${media.map((_, idx) => `
                 <span class="teaser-card__dot ${idx === currentIndex ? 'is-active' : ''}"></span>
@@ -456,7 +491,7 @@ const TEASER_ITEMS = [
 
           mediaWrap.innerHTML = `
             <div class="teaser-card__media-stage">
-              ${renderMediaMarkup(entry, item.title)}
+              ${renderMediaMarkup(entry, item.title, posterImage)}
             </div>
             ${dotsMarkup}
           `;

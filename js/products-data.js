@@ -36,10 +36,11 @@ function cloudinaryUrl(publicId, opts){
 
 function cloudinaryVideoUrl(publicId, opts){
   opts = opts || {};
-  const width = opts.width || 1200;
-  const quality = opts.quality || 'auto';
-  const format = opts.format || 'auto';
-  const transform = `f_${format},q_${quality},w_${width}`;
+  const width = opts.width || 800;
+  const quality = opts.quality || 'auto:good';
+  const format = opts.format || 'mp4';
+  const bitrate = opts.bitrate || '600k';
+  const transform = `f_${format},q_${quality},w_${width},vc_h264,ac_aac,br_${bitrate}`;
   return `https://res.cloudinary.com/${CLOUDINARY.cloudName}/video/upload/${transform}/${publicId}`;
 }
 
