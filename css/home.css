@@ -671,6 +671,15 @@
   background: #000;
 }
 
+.lightbox-media video {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 1100px);
+  max-height: 80vh;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .lightbox-controls {
   display: flex;
   align-items: center;

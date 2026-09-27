@@ -12,7 +12,7 @@ const TEASER_ITEMS = [
         type: 'image',
       },
       {
-        src: cloudinaryVideoUrl('v1784744306/SteelHub/Classic/Gates/IMG_7902_lygn3k.mov', { width: 1200 }),
+        src: cloudinaryVideoUrl('v1790506918/SteelHub/Classic/Gates/t1_jgovdp.mp4', { width: 900 }),
         type: 'video',
       },
       {
@@ -30,7 +30,7 @@ const TEASER_ITEMS = [
         type: 'image',
       },
       {
-        src: cloudinaryVideoUrl('v1786087638/SteelHub/Classic/Gates/c2_uxoxgy.mov', { width: 900 }),
+        src: cloudinaryVideoUrl('v1790505660/SteelHub/Classic/Gates/c2_xnvbqv.mp4', { width: 900 }),
         type: 'video',
       },
     ],
@@ -68,7 +68,7 @@ const TEASER_ITEMS = [
     style: 'modern',
     media: [
       {
-        src: cloudinaryVideoUrl('v1787071428/SteelHub/Modern/Elevation/alstone_e0bpua.mov', { width: 900 }),
+        src: cloudinaryVideoUrl('v1790534769/SteelHub/Modern/Elevation/e1.mp4', { width: 900 }),
         type: 'video',
       }
     ],
@@ -78,7 +78,7 @@ const TEASER_ITEMS = [
     style: 'classic',
     media: [
       {
-        src: cloudinaryVideoUrl('v1787068985/SteelHub/Classic/Railings/railing_mkdvhs.mov', { width: 900 }),
+        src: cloudinaryVideoUrl('v1790506817/SteelHub/Classic/Railings/r_xly5lg.mp4', { width: 900 }),
         type: 'video',
       }
     ],
@@ -88,7 +88,7 @@ const TEASER_ITEMS = [
     style: 'sheds',
     media: [
       {
-        src: cloudinaryVideoUrl('v1787071535/SteelHub/Shed/shed_erl6vs.mov', { width: 1200 }),
+        src: cloudinaryVideoUrl('v1790535028/SteelHub/Shed/s.mp4', { width: 900 }),
         type: 'video',
       }
     ],
@@ -169,6 +169,29 @@ const TEASER_ITEMS = [
 
     } catch (error) {
       console.warn('Could not convert video URL:', url, error);
+      return url;
+    }
+  }
+
+  function getLightboxVideoUrl(url) {
+    if (!url) return '';
+
+    try {
+      const parsed = new URL(url, window.location.href);
+      if (!parsed.hostname.includes('cloudinary.com')) return url;
+
+      const uploadMarker = '/video/upload/';
+      const uploadIndex = parsed.pathname.indexOf(uploadMarker);
+      if (uploadIndex === -1) return url;
+
+      const assetPath = parsed.pathname.slice(uploadIndex + uploadMarker.length);
+      const segments = assetPath.split('/');
+      if (segments[0].includes(',')) segments.shift();
+
+      parsed.pathname = `${parsed.pathname.slice(0, uploadIndex + uploadMarker.length)}f_mp4,vc_h264,ac_aac/${segments.join('/')}`;
+      return parsed.toString();
+    } catch (error) {
+      console.warn('Could not prepare lightbox video URL:', url, error);
       return url;
     }
   }
@@ -339,7 +362,7 @@ const TEASER_ITEMS = [
 
       // IMPORTANT:
       // Convert .mov/.mp4 Cloudinary URLs to browser-friendly MP4.
-      source.src = getBrowserVideoUrl(entry.src);
+      source.src = getLightboxVideoUrl(entry.src);
 
       // Always tell the browser this is MP4.
       source.type = 'video/mp4';
