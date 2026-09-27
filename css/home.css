@@ -554,11 +554,11 @@
   height: 100%;
 }
 
-.teaser-card__media-stage img,
+.teaser-card__media-stage img, 
 .teaser-card__media-stage video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
